@@ -1,24 +1,20 @@
 {
+    "main": "build/js/main.js",
     "private": true,
     "scripts": {
-        "start": "webpack-dev-server --mode development --host 0.0.0.0",
-        "build": "webpack",
-        "dev": "npm run development",
-        "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-        "watch": "npm run development -- --watch",
-        "watch-poll": "npm run watch -- --watch-poll",
-        "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
-        "prod": "npm run production",
-        "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+        "start-server": "live-server",
+        "start-babel": "npx babel src --out-dir build --copy-files --watch",
+        "build": "babel src --out-dir build --copy-files"
     },
     "devDependencies": {
+        "@babel/cli": "^7.4.4",
         "@babel/preset-react": "^7.0.0",
         "axios": "^0.18",
+        "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
         "bootstrap": "^4.0.0",
         "cross-env": "^5.1",
-        "html-webpack-plugin": "^3.2.0",
-        "jquery": "^3.2",
-        "laravel-mix": "^4.0.7",
+        "electron": "^5.0.5",
+        "live-server": "^1.2.1",
         "lodash": "^4.17.5",
         "popper.js": "^1.12",
         "react": "^16.8.6",
@@ -29,7 +25,9 @@
         "webpack-cli": "^3.3.1"
     },
     "dependencies": {
+        "@babel/core": "^7.4.4",
         "@babel/plugin-proposal-class-properties": "^7.4.4",
+        "@babel/preset-env": "^7.4.4",
         "@fortawesome/fontawesome-svg-core": "^1.2.18",
         "@fortawesome/free-solid-svg-icons": "^5.8.2",
         "@fortawesome/react-fontawesome": "^0.1.4",
@@ -40,7 +38,6 @@
         "babel-preset-react": "^6.24.1",
         "node-sass": "^4.12.0",
         "prop-types": "^15.7.2",
-        "react-hot-loader": "^4.11.0",
         "react-router-dom": "^5.0.0",
         "reactstrap": "^8.0.0"
     }
