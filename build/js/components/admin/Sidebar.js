@@ -3,10 +3,9 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports["default"] = void 0;
 
-var _react = require("react");
-
-var _react2 = _interopRequireDefault(_react);
+var _react = _interopRequireDefault(require("react"));
 
 var _index = require("@fortawesome/react-fontawesome/index");
 
@@ -68,40 +67,40 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return _react2["default"].createElement("div", {
+      return _react["default"].createElement("div", {
         className: "bg-light border-right"
-      }, _react2["default"].createElement("div", {
+      }, _react["default"].createElement("div", {
         className: "sidebar-heading"
-      }, _react2["default"].createElement("a", {
+      }, _react["default"].createElement("a", {
         id: "systemmanagerVersionHover"
-      }, "SystemManager")), _react2["default"].createElement(_reactstrap.Tooltip, {
+      }, "SystemManager")), _react["default"].createElement(_reactstrap.Tooltip, {
         placement: "right",
         isOpen: this.state.tooltipOpen,
         target: "systemmanagerVersionHover",
         toggle: this.toggle
-      }, "v0.1"), _react2["default"].createElement("div", {
+      }, "v0.1"), _react["default"].createElement("div", {
         className: "list-group list-group-flush"
-      }, _react2["default"].createElement(_reactRouterDom.Link, {
+      }, _react["default"].createElement(_reactRouterDom.Link, {
         to: "/dashboard",
         className: "list-group-item list-group-item-action bg-light"
-      }, _react2["default"].createElement(_index.FontAwesomeIcon, {
+      }, _react["default"].createElement(_index.FontAwesomeIcon, {
         icon: _index2.faDesktop
-      }), " Dashboard"), _react2["default"].createElement(_reactRouterDom.Link, {
+      }), " Dashboard"), _react["default"].createElement(_reactRouterDom.Link, {
         to: "/servers",
         className: "list-group-item list-group-item-action bg-light"
-      }, _react2["default"].createElement(_index.FontAwesomeIcon, {
+      }, _react["default"].createElement(_index.FontAwesomeIcon, {
         icon: _index2.faServer
-      }), " Servers"), _react2["default"].createElement(_reactRouterDom.Link, {
+      }), " Servers"), _react["default"].createElement(_reactRouterDom.Link, {
         to: "/log",
         className: "list-group-item list-group-item-action bg-light"
-      }, _react2["default"].createElement(_index.FontAwesomeIcon, {
+      }, _react["default"].createElement(_index.FontAwesomeIcon, {
         icon: _index2.faList
-      }), " Log"), _react2["default"].createElement(_reactRouterDom.Link, {
+      }), " Log"), _react["default"].createElement(_reactRouterDom.Link, {
         to: "/settings",
         className: "list-group list-group-item list-group-item-action bg-light"
-      }, _react2["default"].createElement(_index.FontAwesomeIcon, {
+      }, _react["default"].createElement(_index.FontAwesomeIcon, {
         icon: _index2.faCogs
-      }), " Settings"), _react2["default"].createElement(_reactRouterDom.Link, {
+      }), " Settings"), _react["default"].createElement(_reactRouterDom.Link, {
         to: "/settings/servers",
         className: "list-group-item list-group-item-action bg-light"
       }, "Servfers")));
@@ -109,6 +108,7 @@ function (_React$Component) {
   }]);
 
   return Sidebar;
-}(_react2["default"].Component);
+}(_react["default"].Component);
 
-exports["default"] = Sidebar;
+var _default = Sidebar;
+exports["default"] = _default;

@@ -3,11 +3,9 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = undefined;
+exports["default"] = void 0;
 
-var _react = require("react");
-
-var React = _interopRequireWildcard(_react);
+var React = _interopRequireWildcard(require("react"));
 
 var _reactstrap = require("reactstrap");
 
@@ -21,9 +19,7 @@ var _faBars = require("@fortawesome/free-solid-svg-icons/faBars");
 
 require("../../css/sidebar.scss");
 
-var _DropdownItem = require("reactstrap/es/DropdownItem");
-
-var _DropdownItem2 = _interopRequireDefault(_DropdownItem);
+var _DropdownItem = _interopRequireDefault(require("reactstrap/es/DropdownItem"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
@@ -132,15 +128,15 @@ function (_React$Component) {
         className: "list-group-item list-group-item-action bg-light"
       }, React.createElement(_index.FontAwesomeIcon, {
         icon: _index2.faCogs
-      }), " Settings"), React.createElement(_reactstrap.DropdownMenu, null, React.createElement(_DropdownItem2["default"], {
+      }), " Settings"), React.createElement(_reactstrap.DropdownMenu, null, React.createElement(_DropdownItem["default"], {
         header: true
       }, "Settings"), React.createElement(_reactRouterDom.Link, {
         to: "/settings"
-      }, React.createElement(_DropdownItem2["default"], null, "General")), React.createElement(_reactRouterDom.Link, {
+      }, React.createElement(_DropdownItem["default"], null, "General")), React.createElement(_reactRouterDom.Link, {
         to: "/settings/servers"
-      }, React.createElement(_DropdownItem2["default"], null, "Servers")), React.createElement(_reactRouterDom.Link, {
+      }, React.createElement(_DropdownItem["default"], null, "Servers")), React.createElement(_reactRouterDom.Link, {
         to: "/settings/users"
-      }, React.createElement(_DropdownItem2["default"], null, "Users")))))), React.createElement("div", {
+      }, React.createElement(_DropdownItem["default"], null, "Users")))))), React.createElement("div", {
         id: "page-content-wrapper"
       }, React.createElement("nav", {
         className: "navbar navbar-expand-lg bg-light border-bottom"

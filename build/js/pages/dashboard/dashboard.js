@@ -3,21 +3,15 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = undefined;
+exports["default"] = void 0;
 
-var _react = require("react");
-
-var React = _interopRequireWildcard(_react);
+var React = _interopRequireWildcard(require("react"));
 
 var _reactstrap = require("reactstrap");
 
-var _InfoBox = require("../../components/InfoBox");
+var _InfoBox = _interopRequireDefault(require("../../components/InfoBox"));
 
-var _InfoBox2 = _interopRequireDefault(_InfoBox);
-
-var _CardDeck = require("reactstrap/es/CardDeck");
-
-var _CardDeck2 = _interopRequireDefault(_CardDeck);
+var _CardDeck = _interopRequireDefault(require("reactstrap/es/CardDeck"));
 
 var _index = require("@fortawesome/react-fontawesome/index");
 

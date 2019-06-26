@@ -3,19 +3,17 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = undefined;
+exports["default"] = void 0;
 
-var _react = require("react");
-
-var _react2 = _interopRequireDefault(_react);
+var _react = _interopRequireWildcard(require("react"));
 
 var _reactstrap = require("reactstrap");
 
-var _LoginLayout = require("../../layouts/LoginLayout");
-
-var _LoginLayout2 = _interopRequireDefault(_LoginLayout);
+var _LoginLayout = _interopRequireDefault(require("../../layouts/LoginLayout"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj["default"] = obj; return newObj; } }
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -68,41 +66,41 @@ function (_Component) {
   _createClass(Login, [{
     key: "render",
     value: function render() {
-      return _react2["default"].createElement(_LoginLayout2["default"], null, _react2["default"].createElement("div", null, _react2["default"].createElement("div", {
+      return _react["default"].createElement(_LoginLayout["default"], null, _react["default"].createElement("div", null, _react["default"].createElement("div", {
         className: "container"
-      }, _react2["default"].createElement("div", {
+      }, _react["default"].createElement("div", {
         className: "row justify-content-center"
-      }, _react2["default"].createElement("div", {
+      }, _react["default"].createElement("div", {
         className: "",
         style: {
           width: "400px",
           top: "50%"
         }
-      }, _react2["default"].createElement(_reactstrap.Card, null, _react2["default"].createElement(_reactstrap.CardBody, null, _react2["default"].createElement("h2", {
+      }, _react["default"].createElement(_reactstrap.Card, null, _react["default"].createElement(_reactstrap.CardBody, null, _react["default"].createElement("h2", {
         className: ""
-      }, "SystemManager"), _react2["default"].createElement("div", null, _react2["default"].createElement("br", null), _react2["default"].createElement(_reactstrap.InputGroup, {
+      }, "SystemManager"), _react["default"].createElement("div", null, _react["default"].createElement("br", null), _react["default"].createElement(_reactstrap.InputGroup, {
         id: "usernameInput"
-      }, _react2["default"].createElement(_reactstrap.Input, {
+      }, _react["default"].createElement(_reactstrap.Input, {
         onChange: this.setFormState,
         name: "username",
         placeholder: "Username"
-      })), _react2["default"].createElement("br", null), _react2["default"].createElement(_reactstrap.InputGroup, {
+      })), _react["default"].createElement("br", null), _react["default"].createElement(_reactstrap.InputGroup, {
         id: "passwordInput"
-      }, _react2["default"].createElement(_reactstrap.Input, {
+      }, _react["default"].createElement(_reactstrap.Input, {
         type: "password",
         onChange: this.setFormState,
         name: "password",
         placeholder: "Password"
-      })), _react2["default"].createElement("br", null), _react2["default"].createElement(_reactstrap.Button, {
+      })), _react["default"].createElement("br", null), _react["default"].createElement(_reactstrap.Button, {
         onClick: this.submitLogin.bind(this),
         color: "primary",
         style: {
           width: "100%"
         }
-      }, _react2["default"].createElement(_reactstrap.Spinner, {
+      }, _react["default"].createElement(_reactstrap.Spinner, {
         hidden: !this.state.waitingForToken,
         size: "sm"
-      }), " ", _react2["default"].createElement("a", {
+      }), " ", _react["default"].createElement("a", {
         hidden: this.state.waitingForToken
       }, "Login"))))))))));
     }

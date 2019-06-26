@@ -3,32 +3,21 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports["default"] = void 0;
 
-var _react = require("react");
-
-var React = _interopRequireWildcard(_react);
+var React = _interopRequireWildcard(require("react"));
 
 var _reactRouterDom = require("react-router-dom");
 
-var _dashboard = require("./pages/dashboard/dashboard");
+var _dashboard = _interopRequireDefault(require("./pages/dashboard/dashboard"));
 
-var _dashboard2 = _interopRequireDefault(_dashboard);
+var _AdminLayout = _interopRequireDefault(require("./layouts/AdminLayout"));
 
-var _AdminLayout = require("./layouts/AdminLayout");
+var _login = _interopRequireDefault(require("./pages/login/login"));
 
-var _AdminLayout2 = _interopRequireDefault(_AdminLayout);
+var _LoginLayout = _interopRequireDefault(require("./layouts/LoginLayout"));
 
-var _login = require("./pages/login/login");
-
-var _login2 = _interopRequireDefault(_login);
-
-var _LoginLayout = require("./layouts/LoginLayout");
-
-var _LoginLayout2 = _interopRequireDefault(_LoginLayout);
-
-var _servers = require("./pages/servers");
-
-var _servers2 = _interopRequireDefault(_servers);
+var _servers = _interopRequireDefault(require("./pages/servers"));
 
 require("../css/app.scss");
 
@@ -85,28 +74,28 @@ function (_React$Component) {
   _createClass(App, [{
     key: "render",
     value: function render() {
-      return React.createElement(_react.Fragment, null, React.createElement(_reactRouterDom.Link, {
+      return React.createElement(React.Fragment, null, React.createElement(_reactRouterDom.Link, {
         to: "/dashboard"
       }, "Dashboard"), React.createElement(_reactRouterDom.Switch, null, React.createElement(_reactRouterDom.Route, {
         path: "/login",
         exact: true,
-        component: _login2["default"]
-      }), React.createElement(_AdminLayout2["default"], null, React.createElement(_reactRouterDom.Route, {
+        component: _login["default"]
+      }), React.createElement(_AdminLayout["default"], null, React.createElement(_reactRouterDom.Route, {
         path: "/dashboard",
         exact: true,
-        component: _dashboard2["default"]
+        component: _dashboard["default"]
       }), React.createElement(_reactRouterDom.Route, {
         path: "/servers",
         exact: true,
-        component: _servers2["default"]
+        component: _servers["default"]
       }), React.createElement(_reactRouterDom.Route, {
         path: "/settings/servers",
         exact: true,
-        component: _servers2["default"]
+        component: _servers["default"]
       }), React.createElement(_reactRouterDom.Route, {
         path: "/settings/servers/:id",
         exact: true,
-        component: _servers2["default"]
+        component: _servers["default"]
       }))));
     }
   }]);
@@ -114,4 +103,5 @@ function (_React$Component) {
   return App;
 }(React.Component);
 
-exports["default"] = App;
+var _default = App;
+exports["default"] = _default;

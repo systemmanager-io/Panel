@@ -3,15 +3,13 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = undefined;
+exports["default"] = void 0;
 
-var _react = require("react");
-
-var _react2 = _interopRequireDefault(_react);
+var _react = _interopRequireWildcard(require("react"));
 
 var _reactstrap = require("reactstrap");
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj["default"] = obj; return newObj; } }
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -45,17 +43,17 @@ function (_Component) {
   _createClass(Example, [{
     key: "render",
     value: function render() {
-      return _react2["default"].createElement("div", {
+      return _react["default"].createElement("div", {
         className: "container"
-      }, _react2["default"].createElement("div", {
+      }, _react["default"].createElement("div", {
         className: "row justify-content-center"
-      }, _react2["default"].createElement("div", {
+      }, _react["default"].createElement("div", {
         className: "col-md-8"
-      }, _react2["default"].createElement("div", {
+      }, _react["default"].createElement("div", {
         className: "card"
-      }, _react2["default"].createElement("div", {
+      }, _react["default"].createElement("div", {
         className: "card-header"
-      }, "Example Component"), _react2["default"].createElement("div", {
+      }, "Example Component"), _react["default"].createElement("div", {
         className: "card-body"
       }, "I'm an example component!")))));
     }
