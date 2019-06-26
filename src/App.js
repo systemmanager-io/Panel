@@ -1,26 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import * as React from 'react';
+import {Route, Switch} from "react-router-dom";
+import Dashboard from "./pages/dashboard/dashboard";
+import './sass/app.scss';
+import AdminLayout from "./layouts/AdminLayout";
+import Login from "./pages/login/login";
+import Servers from "./pages/servers";
+import {Fragment} from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+
+    state = {
+        isLoggedIn: false,
+        user: {}
+    };
+
+    render() {
+        return (
+            <Fragment>
+                <Switch>
+                    <Route path="/login" exact component={Login}/>
+                    <AdminLayout>
+                        <Route path="/dashboard" exact component={Dashboard}/>
+                        <Route path="/servers" exact component={Servers}/>
+                        <Route path="/settings/servers" exact component={Servers}/>
+                        <Route path="/settings/servers/:id" exact component={Servers}/>
+                        {/*<Route path="/management" exact component={Management}/>*/}
+                    </AdminLayout>
+                </Switch>
+            </Fragment>
+        );
+    }
 }
 
 export default App;
