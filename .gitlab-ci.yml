@@ -1,0 +1,48 @@
+image: awhalen/docker-php-composer-node
+
+cache:
+  key: "SystemManager-Panel"
+  paths:
+    - "node_modules/"
+    - "vendor/"
+
+
+stages:
+  - build
+  - test
+  - demo
+
+build:
+  stage: build
+  script:
+    - npm install --no-dev
+    - npm run build
+    - rm .git -rf
+  artifacts:
+    paths:
+      - './build'
+
+test:
+  stage: test
+  script:
+    - echo "No tests are defined yet"
+
+deploy_demo:
+  stage: demo
+  before_script:
+    - mkdir -p ~/.ssh
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' > ~/.ssh/id_rsa
+    - chmod 700 ~/.ssh/id_rsa
+    - eval "$(ssh-agent -s)"
+    - ssh-add ~/.ssh/id_rsa
+    - ssh-keyscan -H 'nl-ams1-01.genericdevelopment.nl' >> ~/.ssh/known_hosts
+  script:
+    - ssh root@nl-ams1-01.genericdevelopment.nl 'cd /var/www/staging/systemmanager_showcase; php artisan down --message "Deploying Update"'
+    - rsync -airzP "$PWD"/* root@nl-ams1-01.genericdevelopment.nl:/var/www/staging/systemmanager_showcase
+    - ssh root@nl-ams1-01.genericdevelopment.nl 'cd /var/www/staging/systemmanager_showcase; php artisan up'
+  environment:
+    name: staging
+    url: https://demo.systemmanager.io
+  only:
+    - master
+  when: manual
