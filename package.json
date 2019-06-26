@@ -17,7 +17,7 @@
     "tailwindcss": "^1.0.4"
   },
   "scripts": {
-    "tailwind:css": "tailwind build src/scss/tailwind.src.css -c tailwind.js -o src/scss/tailwind.css",
+    "tailwind:css": "tailwind build src/sass/tailwind.src.css -c tailwind.js -o src/sass/tailwind.css",
     "start": "npm run tailwind:css && react-scripts start",
     "build": "npm run tailwind:css && react-scripts build",
     "test": "react-scripts test",
