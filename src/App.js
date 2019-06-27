@@ -2,6 +2,7 @@ import * as React from 'react';
 import {Route, Switch} from "react-router-dom";
 import Dashboard from "./pages/dashboard/dashboard";
 import './sass/app.scss';
+import './sass/tailwind.scss';
 import AdminLayout from "./layouts/AdminLayout";
 import Login from "./pages/login/login";
 import Servers from "./pages/servers";
