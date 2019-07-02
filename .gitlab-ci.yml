@@ -37,7 +37,7 @@ deploy_demo:
     - ssh-add ~/.ssh/id_rsa
     - ssh-keyscan -H 'nl-ams1-01.genericdevelopment.nl' >> ~/.ssh/known_hosts
   script:
-    - rsync -airzP "$PWD"/* root@nl-ams1-01.genericdevelopment.nl:/var/www/demos/systemmanager/public
+    - rsync -airzP "$PWD"/build/* root@nl-ams1-01.genericdevelopment.nl:/var/www/demos/systemmanager/public
   environment:
     name: staging
     url: https://demo.systemmanager.io
