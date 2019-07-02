@@ -16,7 +16,7 @@ export default class Login extends Component {
             <LoginLayout>
                 <div className="bg-grey-lighter h-screen font-sans">
                     <div className="container mx-auto h-full flex justify-center items-center">
-                        <div className="w-9/12 lg:w-1/3">
+                        <div className="w-9/12 sm:w-6/12 lg:w-4/12">
                             <div className="p-8 bg-white mb-6 rounded-lg shadow-lg">
                                 <h1 className="font-hairline text-4xl mb-6 font-bold text-center">SystemManager</h1>
                                 <div className="mb-4">

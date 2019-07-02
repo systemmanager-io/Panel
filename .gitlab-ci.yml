@@ -15,8 +15,8 @@ stages:
 build:
   stage: build
   script:
-    - npm install --no-dev
-    - npm run build
+    - yarn --no-dev
+    - yarn build
     - rm .git -rf
   artifacts:
     paths:
@@ -37,9 +37,7 @@ deploy_demo:
     - ssh-add ~/.ssh/id_rsa
     - ssh-keyscan -H 'nl-ams1-01.genericdevelopment.nl' >> ~/.ssh/known_hosts
   script:
-    - ssh root@nl-ams1-01.genericdevelopment.nl 'cd /var/www/staging/systemmanager_showcase; php artisan down --message "Deploying Update"'
-    - rsync -airzP "$PWD"/* root@nl-ams1-01.genericdevelopment.nl:/var/www/staging/systemmanager_showcase
-    - ssh root@nl-ams1-01.genericdevelopment.nl 'cd /var/www/staging/systemmanager_showcase; php artisan up'
+    - rsync -airzP "$PWD"/* root@nl-ams1-01.genericdevelopment.nl:/var/www/demos/systemmanager/public
   environment:
     name: staging
     url: https://demo.systemmanager.io
