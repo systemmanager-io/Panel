@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import LoginLayout from "../../layouts/LoginLayout";
-// import {Link} from "react-router-dom";
+import {Link} from "react-router-dom";
 
 export default class Login extends Component {
 
@@ -39,10 +39,10 @@ export default class Login extends Component {
                                         Login
                                     </button>
 
-                                    <a className="no-underline inline-block align-baseline font-bold text-sm text-blue hover:text-blue-dark float-right"
-                                       href="#">
+                                    <Link className="no-underline inline-block align-baseline font-bold text-sm text-blue hover:text-blue-dark float-right"
+                                       href="/forgot_password">
                                         Forgot Password?
-                                    </a>
+                                    </Link>
                                 </div>
 
                             </div>
