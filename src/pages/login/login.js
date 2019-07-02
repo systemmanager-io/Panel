@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import LoginLayout from "../../layouts/LoginLayout";
-import {Link} from "react-router-dom";
+// import {Link} from "react-router-dom";
 
 export default class Login extends Component {
 
