@@ -1,8 +1,14 @@
 import * as React from 'react';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome/index";
-import {faDesktop} from "@fortawesome/free-solid-svg-icons/index";
 import Card from "../../components/components/card";
 import CardBody from "../../components/components/cardBody";
+import {
+    faExclamationCircle,
+    faExclamationTriangle,
+    faInfo,
+    faInfoCircle,
+    faServer
+} from "@fortawesome/free-solid-svg-icons";
 // import Toast from "../../components/Toast";
 
 export default class Dashboard extends React.Component {
@@ -15,32 +21,57 @@ export default class Dashboard extends React.Component {
                     <div className="w-full md:w-4/12 lg:w-3/12">
                         <Card>
                             <CardBody className="">
-                                <h4>Server status</h4>
-                                <h5>All Systems Operational</h5>
+                                <div className="flex flex-wrap">
+                                    <div className="w-3/12">
+                                        <FontAwesomeIcon className="text-5xl" icon={faServer}/>
+                                    </div>
+                                    <div className="w-9/12 h-full">
+                                        <h5 className="justify-center">All Systems OK</h5>
+                                    </div>
+                                </div>
                             </CardBody>
                         </Card>
                     </div>
                     <div className="w-full md:w-4/12 lg:w-3/12">
                         <Card color="red">
                             <CardBody>
-                                <h4>Server status</h4>
-                                <h5>1 Offline</h5>
+                                <div className="flex flex-wrap">
+                                    <div className="w-3/12">
+                                        <FontAwesomeIcon className="text-5xl content-center"
+                                                         icon={faExclamationTriangle}/>
+                                    </div>
+                                    <div className="w-9/12">
+                                        <h5>1 Server requires immediate attention</h5>
+                                    </div>
+                                </div>
                             </CardBody>
                         </Card>
                     </div>
                     <div className="w-full md:w-4/12 lg:w-3/12">
                         <Card color="blue">
                             <CardBody>
-                                <h4>Server status</h4>
-                                <h5>1 Server Message</h5>
+                                <div className="flex flex-wrap">
+                                    <div className="w-3/12">
+                                        <FontAwesomeIcon className="text-5xl" icon={faInfoCircle}/>
+                                    </div>
+                                    <div className="w-9/12">
+                                        <h5 className="align-middle">1 server send a message</h5>
+                                    </div>
+                                </div>
                             </CardBody>
                         </Card>
                     </div>
                     <div className="w-full md:w-4/12 lg:w-3/12">
                         <Card color="yellow">
                             <CardBody>
-                                <h4>Server status</h4>
-                                <h5>1 Server Warning</h5>
+                                <div className="flex flex-wrap">
+                                    <div className="w-3/12">
+                                        <FontAwesomeIcon className="text-5xl" icon={faExclamationCircle}/>
+                                    </div>
+                                    <div className="w-9/12">
+                                        <h5 className="align-middle">1 server has a warning</h5>
+                                    </div>
+                                </div>
                             </CardBody>
                         </Card>
                     </div>
