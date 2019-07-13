@@ -5,7 +5,6 @@ import CardBody from "../../components/components/cardBody";
 import {
     faExclamationCircle,
     faExclamationTriangle,
-    faInfo,
     faInfoCircle,
     faServer
 } from "@fortawesome/free-solid-svg-icons";
