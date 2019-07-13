@@ -32,16 +32,13 @@ export default class AdminLayout extends React.Component {
         return (
             <div className="bg-gray-800 h-screen">
                 <NavBar/>
-                <Sidebar/>
-                <div className="flex flex-wrap">
-
-                    <div>
-                        <div className="">
-                            {this.props.children}
-                        </div>
+                <div className="flex flex-wrap h-full">
+                    <div className="md:w-2/12">
+                        <Sidebar/>
                     </div>
-
-
+                    <div className="md:w-10/12 p-4 md:border-t-4 md:border-gray-600">
+                        {this.props.children}
+                    </div>
                 </div>
             </div>
         );

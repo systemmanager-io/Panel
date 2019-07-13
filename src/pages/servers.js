@@ -19,7 +19,7 @@ export default class Servers extends React.Component {
                     <div className="col-md-12">
                         <Card>
                             <CardBody>
-                                <table>
+                                <table className="table-auto">
                                     <thead>
                                     <tr>
                                         <th style={{width: "25px"}}>#</th>
