@@ -1,8 +1,5 @@
 import React from 'react';
 import {Link} from "react-router-dom";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faCogs, faList, faListOl, faServer} from "@fortawesome/free-solid-svg-icons";
-
 class Sidebar extends React.Component {
 
     constructor(props) {
@@ -29,7 +26,7 @@ class Sidebar extends React.Component {
                     <ul className="list-reset flex flex-row md:flex-col">
                         <li className="ml-1 mr-1 flex-1">
                             <Link to="dashboard"
-                                  className={window.location.pathname === "/dashboard" ? "block py-1 md:py-3 pl-1 align-middle text-gray-800 no-underline hover:text-pink-500 border-b-2 border-pink-600 hover:border-pink-500" : "block py-1 md:py-3 pl-1 align-middle text-gray-800 no-underline hover:text-pink-500 hover:border-pink-500"}>
+                                  className={window.location.pathname === "/dashboard" ? "block py-1 md:py-3 pl-1 align-middle text-gray-800 no-underline hover:text-pink-500 border-b-2 border-pink-600 hover:border-pink-500" : "block py-1 md:py-3 pl-1 align-middle text-gray-800 no-underline border-b-2 border-gray-800 md:border-gray-900 hover:text-pink-500 hover:border-pink-500"}>
                                 <span>
                                     {/*<FontAwesomeIcon*/}
                                     {/*    className="hidden md:inline"*/}
@@ -42,7 +39,7 @@ class Sidebar extends React.Component {
                         </li>
                         <li className="ml-1 mr-1 flex-1">
                             <Link to="servers"
-                                  className={window.location.pathname === "/servers" ? "block py-1 md:py-3 pl-1 align-middle text-gray-800 no-underline hover:text-pink-500 border-b-2 border-pink-600 hover:border-pink-500" : "block py-1 md:py-3 pl-1 align-middle text-gray-800 no-underline hover:text-pink-500 hover:border-pink-500"}>
+                                  className={window.location.pathname === "/servers" ? "block py-1 md:py-3 pl-1 align-middle text-gray-800 no-underline hover:text-pink-500 border-b-2 border-pink-600 hover:border-pink-500" : "block py-1 md:py-3 pl-1 align-middle text-gray-800 no-underline border-b-2 border-gray-800 md:border-gray-900 hover:text-pink-500 hover:border-pink-500"}>
                                <span>
                                    {/*<FontAwesomeIcon*/}
                                    {/*className="hidden md:inline"*/}
@@ -62,7 +59,7 @@ class Sidebar extends React.Component {
                         {/*</li>*/}
                         <li className="ml-1 mr-1 flex-1">
                             <Link to="log"
-                                  className={window.location.pathname === "/log" ? "block py-1 md:py-3 pl-1 align-middle text-gray-800 no-underline hover:text-pink-500 border-b-2 border-pink-600 hover:border-pink-500" : "block py-1 md:py-3 pl-1 align-middle text-gray-800 no-underline hover:text-pink-500 hover:border-pink-500"}>
+                                  className={window.location.pathname === "/log" ? "block py-1 md:py-3 pl-1 align-middle text-gray-800 no-underline hover:text-pink-500 border-b-2 border-pink-600 hover:border-pink-500" : "block py-1 md:py-3 pl-1 align-middle text-gray-800 no-underline border-b-2 border-gray-800 md:border-gray-900 hover:text-pink-500 hover:border-pink-500"}>
                                 <span>
                                     {/*<FontAwesomeIcon*/}
                                     {/*    className="hidden md:inline text-gray-600 md:text-gray-400"*/}
@@ -75,7 +72,7 @@ class Sidebar extends React.Component {
                         </li>
                         <li className="ml-1 mr-1 flex-1">
                             <Link to="settings"
-                                  className={window.location.pathname === "/settings" ? "block py-1 md:py-3 pl-1 align-middle text-gray-800 no-underline hover:text-pink-500 border-b-2 border-pink-600 hover:border-pink-500" : "block py-1 md:py-3 pl-1 align-middle text-gray-800 no-underline hover:text-pink-500 hover:border-pink-500"}>
+                                  className={window.location.pathname === "/settings" ? "block py-1 md:py-3 pl-1 align-middle text-gray-800 no-underline hover:text-pink-500 border-b-2 border-pink-600 hover:border-pink-500" : "block py-1 md:py-3 pl-1 align-middle text-gray-800 no-underline border-b-2 border-gray-800 md:border-gray-900 hover:text-pink-500 hover:border-pink-500"}>
                                 <span>
                                     {/*<FontAwesomeIcon*/}
                                     {/*    className="hidden md:inline"*/}
