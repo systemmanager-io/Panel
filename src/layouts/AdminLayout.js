@@ -1,6 +1,7 @@
 import * as React from 'react';
 import '../sass/sidebar.scss'
 import NavBar from "../components/NavBar";
+import Sidebar from "../components/Sidebar";
 
 export default class AdminLayout extends React.Component {
 
@@ -31,6 +32,7 @@ export default class AdminLayout extends React.Component {
         return (
             <div className="bg-gray-800 h-screen">
                 <NavBar/>
+                <Sidebar/>
                 <div className="flex flex-wrap">
 
                     <div>
