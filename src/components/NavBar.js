@@ -1,5 +1,4 @@
 import React from 'react';
-import {Link} from "react-router-dom";
 
 class NavBar extends React.Component {
 
@@ -25,7 +24,7 @@ class NavBar extends React.Component {
                     SystemManager
                 </div>
                 <div className="block lg:hidden">
-                    <Link className="hidden lg:block inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-gray-900 hover:bg-white mt-4 lg:mt-0">Profile</Link>
+                    <button className="hidden lg:block inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-gray-900 hover:bg-white mt-4 lg:mt-0">Profile</button>
                     <button
                         className="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
                         <svg className="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -50,7 +49,7 @@ class NavBar extends React.Component {
                         {/*</Link>*/}
                     </div>
                     <div>
-                        <Link className="hidden lg:block inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-gray-900 hover:bg-white mt-4 lg:mt-0">Profile</Link>
+                        <button className="hidden lg:block inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-gray-900 hover:bg-white mt-4 lg:mt-0">Profile</button>
                     </div>
                 </div>
             </nav>

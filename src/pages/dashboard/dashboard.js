@@ -20,8 +20,8 @@ export default class Dashboard extends React.Component {
                             </CardBody>
                         </Card>
                     </div>
-                    <div className="w-full md:w-4/12 lg:w-3/12 ">
-                        <Card className="bg-red-600">
+                    <div className="w-full md:w-4/12 lg:w-3/12">
+                        <Card color="red">
                             <CardBody>
                                 <h4>Server status</h4>
                                 <h5>1 Offline</h5>
@@ -29,7 +29,7 @@ export default class Dashboard extends React.Component {
                         </Card>
                     </div>
                     <div className="w-full md:w-4/12 lg:w-3/12">
-                        <Card className="bg-blue-600">
+                        <Card color="blue">
                             <CardBody>
                                 <h4>Server status</h4>
                                 <h5>1 Server Message</h5>
@@ -37,46 +37,13 @@ export default class Dashboard extends React.Component {
                         </Card>
                     </div>
                     <div className="w-full md:w-4/12 lg:w-3/12">
-                        <Card inverse color="success">
+                        <Card color="yellow">
                             <CardBody>
                                 <h4>Server status</h4>
-                                <h5>1 Online | 1 Offline</h5>
+                                <h5>1 Server Warning</h5>
                             </CardBody>
                         </Card>
                     </div>
-                    {/*<Toast>*/}
-                    {/*    <ToastHeader icon={<Spinner size="sm" type="grow" color="danger"/>}>*/}
-                    {/*        Server Offline*/}
-                    {/*    </ToastHeader>*/}
-                    {/*    <ToastBody>*/}
-                    {/*        (ServerName) has gone offline!*/}
-                    {/*    </ToastBody>*/}
-                    {/*</Toast>*/}
-                    {/*<Toast>*/}
-                    {/*    <ToastHeader icon={<Spinner size="sm" type="grow" color="success"/>}>*/}
-                    {/*        Server Online*/}
-                    {/*    </ToastHeader>*/}
-                    {/*    <ToastBody>*/}
-                    {/*        (ServerName) has come online!*/}
-                    {/*    </ToastBody>*/}
-                    {/*</Toast>*/}
-                    {/*<Toast>*/}
-                    {/*    <ToastHeader icon={<Spinner size="sm" type="grow" color="primary"/>}>*/}
-                    {/*        Connection Issues*/}
-                    {/*    </ToastHeader>*/}
-                    {/*    <ToastBody>*/}
-                    {/*        Panel has some problems connecting to the backend! Expect issues with the panel!*/}
-                    {/*    </ToastBody>*/}
-                    {/*</Toast>*/}
-                    {/*<Toast>*/}
-                    {/*    <ToastHeader icon={<Spinner size="sm" type="grow" color="warning"/>}>*/}
-                    {/*        Pinging*/}
-                    {/*    </ToastHeader>*/}
-                    {/*    <ToastBody>*/}
-                    {/*        Started Pinging manually!*/}
-                    {/*    </ToastBody>*/}
-                    {/*</Toast>*/}
-                    {/*</div>*/}
                 </div>
             </div>
         );
