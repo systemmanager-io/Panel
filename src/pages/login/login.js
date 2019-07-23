@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import LoginLayout from "../../layouts/LoginLayout";
 import {Link} from "react-router-dom";
-import Card from "../../components/components/card";
+import Card from "../../components/components/card/Card";
 
 export default class Login extends Component {
 

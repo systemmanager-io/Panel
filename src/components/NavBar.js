@@ -1,4 +1,6 @@
 import React from 'react';
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faUser} from "@fortawesome/free-solid-svg-icons";
 
 class NavBar extends React.Component {
 
@@ -49,7 +51,7 @@ class NavBar extends React.Component {
                         {/*</Link>*/}
                     </div>
                     <div>
-                        <button className="hidden lg:block inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-gray-900 hover:bg-white mt-4 lg:mt-0">Profile</button>
+                        <button className="inline-block text-sm px-3 py-2 leading-none rounded text-white border-white hover:border-transparent hover:text-gray-900 hover:bg-white lg:mt-0"><FontAwesomeIcon icon={faUser}/></button>
                     </div>
                 </div>
             </nav>
