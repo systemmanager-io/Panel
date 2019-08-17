@@ -1,101 +1,124 @@
-import React, {Component} from 'react';
-import LoginLayout from "../../layouts/LoginLayout";
-import {Link} from "react-router-dom";
-import Card from "../../components/components/card";
+import React from 'react';
+import Avatar from '@material-ui/core/Avatar';
+import Button from '@material-ui/core/Button';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import TextField from '@material-ui/core/TextField';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
+import Link from '@material-ui/core/Link';
+import Paper from '@material-ui/core/Paper';
+import Box from '@material-ui/core/Box';
+import Grid from '@material-ui/core/Grid';
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
+import {SvgIcon} from "@material-ui/core";
 
-export default class Login extends Component {
-
-    state = {
-        passwordForm: false,
-        waitingForToken: false,
-        username: undefined,
-        password: undefined
-    };
-
-    render() {
-        return (
-            <LoginLayout>
-                <div className="bg-gray-800 h-screen font-sans">
-                    <div className="container mx-auto h-full flex justify-center items-center">
-                        <Card className="p-8 mb-6" color="">
-                            <h1 className="font-hairline text-4xl mb-6 font-bold text-center">SystemManager<span
-                                className="text-base align-text-top">v0.1</span></h1>
-                            <div hidden={this.state.waitingForToken}>
-                                <div className="mb-4">
-                                    <label className="font-bold text-grey-darker block mb-2">Email</label>
-                                    <input type="text"
-                                           className="block appearance-none w-full bg-white border border-grey-light hover:border-grey px-2 py-2 rounded shadow"
-                                           placeholder="Your Username"/>
-                                </div>
-
-                                <div className="mb-4">
-                                    <label className="font-bold text-grey-darker block mb-2">Password</label>
-                                    <input type="text"
-                                           className="block appearance-none w-full bg-white border border-grey-light hover:border-grey px-2 py-2 rounded shadow"
-                                           placeholder="Your Password"/>
-                                </div>
-                            </div>
-
-                            <div hidden={!this.state.waitingForToken}>
-                                Loading
-                            </div>
-
-                            <div className="flex items-center justify-between">
-                                <button
-                                    onClick={this.submitLogin.bind(this)}
-                                    className="bg-gray-800 hover:bg-teal text-white w-full font-bold py-2 px-4 rounded">
-                                    Login
-                                </button>
-                            </div>
-                            <div className="flex items-center justify-between">
-                                <Link
-                                    disabled={true}
-                                    className="no-underline inline-block align-baseline font-bold text-sm text-blue hover:text-blue-dark float-right"
-                                    to="/forgot_password">
-                                    Forgot Password?
-                                </Link>
-                            </div>
-                        </Card>
-                    </div>
-                </div>
-            </LoginLayout>
-        );
-    }
-
-    submitLogin() {
-
-        this.setState({waitingForToken: true});
-
-
-        const bodyData = [];
-        bodyData['email'] = this.state.username;
-        bodyData['password'] = this.state.password;
-        fetch(process.env.MIX_APP_URL + "/api/auth/login", {
-                mode: "cors",
-                method: 'post',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    email: this.state.username,
-                    password: this.state.password
-                }),
-            }
-        ).catch(error => console.error(error))
-            .then(res => res.json()
-                .then(res => {
-                    if (res.error === "invalid_credentials" || res.error === "could_not_create_token") {
-                        console.log("test");
-                        // this.setState({waitingForToken: false});
-                        // this.setState({passwordForm: false});
-                        this.setState({statusForToken: "danger"});
-                    } else if (res.token !== undefined) {
-                        console.log(res.token);
-                        this.setState({statusForToken: "success"});
-                        this.props.history.push('/dashboard')
-                    }
-                }));
-
-    }
+function Copyright() {
+    return (
+        <Typography variant="body2" color="textSecondary" align="center">
+            {'Copyright © '}
+            <Link color="inherit" href="https://systemmanager.io/">
+                SystemManager
+            </Link>{' '}
+            {new Date().getFullYear()}
+        </Typography>
+    );
 }
 
+const useStyles = makeStyles(theme => ({
+    root: {
+        height: '100vh',
+    },
+    image: {
+        // backgroundImage: 'url(https://source.unsplash.com/random)',
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+    },
+    paper: {
+        margin: theme.spacing(8, 4),
+        display: 'flex',
+        alignContent: 'center',
+        flexDirection: 'column',
+        alignItems: 'center',
+    },
+    avatar: {
+        margin: theme.spacing(1),
+        backgroundColor: theme.palette.primary.dark,
+    },
+    form: {
+        width: '100%', // Fix IE 11 issue.
+        marginTop: theme.spacing(1),
+    },
+    submit: {
+        margin: theme.spacing(3, 0, 2),
+    },
+}));
+
+export default function SignInSide() {
+    const classes = useStyles();
+
+    return (
+        <Grid container component="main" className={classes.root}>
+            <CssBaseline />
+            <Grid item xs={12} sm={8} md={5} lg={3} component={Paper} elevation={30} square>
+                <div className={classes.paper}>
+                    <Avatar className={classes.avatar}>
+                        <SvgIcon/>
+                    </Avatar>
+                    <Typography component="h1" variant="h4">SystemManager</Typography>
+                    <Typography component="h1" variant="h5">Sign in</Typography>
+                    <form className={classes.form} noValidate>
+                        <TextField
+                            variant="standard"
+                            margin="normal"
+                            required
+                            fullWidth
+                            id="email"
+                            label="Email Address"
+                            name="email"
+                            autoComplete="email"
+                            autoFocus
+                        />
+                        <TextField
+                            variant="standard"
+                            margin="normal"
+                            required
+                            fullWidth
+                            name="password"
+                            label="Password"
+                            type="password"
+                            id="password"
+                            autoComplete="current-password"
+                        />
+                        <FormControlLabel
+                            control={<Checkbox value="remember" color="primary" />}
+                            label="Remember me"
+                        />
+                        <Button
+                            type="submit"
+                            fullWidth
+                            variant="contained"
+                            color="primary"
+                            className={classes.submit}
+                        >
+                            Sign In
+                        </Button>
+                        <Grid container>
+                            <Grid item xs>
+                                <Link href="#" variant="body2">
+                                    Forgot password?
+                                </Link>
+                            </Grid>
+                        </Grid>
+                        <Box mt={5}>
+                            <Copyright />
+                        </Box>
+                    </form>
+                </div>
+            </Grid>
+            <Grid item xs={false} sm={4} md={5} lg={9} className={classes.image} />
+        </Grid>
+    );
+}
