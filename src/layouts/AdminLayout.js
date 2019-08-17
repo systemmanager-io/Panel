@@ -24,6 +24,7 @@ class Adminlayout extends React.Component {
             <Fragment>
 
                 <NavBar/>
+                <Sidebar/>
                 {this.props.children}
 
             </Fragment>

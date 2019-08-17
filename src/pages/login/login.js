@@ -11,7 +11,6 @@ import Box from '@material-ui/core/Box';
 import LockIcon from '@material-ui/icons/Lock';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import SvgIcon from "@material-ui/core/SvgIcon";
 import {CircularProgress} from "@material-ui/core";
 import {withStyles} from "@material-ui/styles";
 
@@ -83,15 +82,20 @@ class Login extends React.Component {
         return (
             <Grid container component="main" className={classes.root}>
                 <CssBaseline/>
-                <Grid item xs={12} sm={8} md={5} lg={3} component={Paper} elevation={30} square>
+                <Grid item xs={12} sm={8} md={5} lg={3} component={Paper} elevation={8} square>
                     <div className={classes.paper}>
                         <Avatar className={classes.avatar}>
-                           <LockIcon/>
+                            <LockIcon/>
                         </Avatar>
                         <Typography component="h1" variant="h4">SystemManager</Typography>
 
 
-                        {this.state.loading ? <CircularProgress className={classes.loading} size={128}/> : (
+                        {this.state.loading ? (
+                            <Fragment>
+                                <Box mt={5}/>
+                                <CircularProgress className={classes.loading} size={128}/>
+                            </Fragment>
+                        ) : (
                             <Fragment>
                                 <Typography component="h1">Sign in to continue</Typography>
 
