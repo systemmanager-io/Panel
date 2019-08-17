@@ -5,7 +5,7 @@ import './sass/app.scss';
 import './sass/tailwind.scss';
 import AdminLayout from "./layouts/AdminLayout";
 import Login from "./pages/login/login";
-import Servers from "./pages/servers";
+import Servers from "./pages/servers/servers";
 import MuiThemeProvider from "@material-ui/core/styles/MuiThemeProvider";
 import createMuiTheme from "@material-ui/core/styles/createMuiTheme";
 import {deepPurple, purple} from "@material-ui/core/colors";

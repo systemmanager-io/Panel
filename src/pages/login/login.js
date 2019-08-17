@@ -11,7 +11,7 @@ import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import {SvgIcon} from "@material-ui/core";
+import SvgIcon from "@material-ui/core/SvgIcon";
 
 function Copyright() {
     return (
@@ -44,7 +44,7 @@ const useStyles = makeStyles(theme => ({
     },
     avatar: {
         margin: theme.spacing(1),
-        backgroundColor: theme.palette.primary.dark,
+        backgroundColor: theme.palette.primary.main,
     },
     form: {
         width: '100%', // Fix IE 11 issue.
@@ -67,7 +67,7 @@ export default function SignInSide() {
                         <SvgIcon/>
                     </Avatar>
                     <Typography component="h1" variant="h4">SystemManager</Typography>
-                    <Typography component="h1" variant="h5">Sign in</Typography>
+                    <Typography component="h1">Sign in to continue</Typography>
                     <form className={classes.form} noValidate>
                         <TextField
                             variant="standard"
@@ -106,7 +106,7 @@ export default function SignInSide() {
                         </Button>
                         <Grid container>
                             <Grid item xs>
-                                <Link href="#" variant="body2">
+                                <Link href="#" color="secondary" variant="body2">
                                     Forgot password?
                                 </Link>
                             </Grid>
