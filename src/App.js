@@ -36,16 +36,16 @@ class App extends React.Component {
         return (
             <MuiThemeProvider theme={theme}>
                 <Auth>
-                <Switch>
-                    <Route path="/login" exact component={Login}/>
-                    <AdminLayout>
-                        <Route path="/dashboard" exact component={Dashboard}/>
-                        <Route path="/servers" exact component={Servers}/>
-                        <Route path="/settings/servers" exact component={Servers}/>
-                        <Route path="/settings/servers/:id" exact component={Servers}/>
-                        {/*<Route path="/management" exact component={Management}/>*/}
-                    </AdminLayout>
-                </Switch>
+                    <Switch>
+                        <Route path="/login" exact component={Login}/>
+                        <AdminLayout>
+                            <Route path="/dashboard" exact component={Dashboard}/>
+                            <Route path="/servers" exact component={Servers}/>
+                            <Route path="/settings/servers" exact component={Servers}/>
+                            <Route path="/settings/servers/:id" exact component={Servers}/>
+                            {/*<Route path="/management" exact component={Management}/>*/}
+                        </AdminLayout>
+                    </Switch>
                 </Auth>
             </MuiThemeProvider>
         );

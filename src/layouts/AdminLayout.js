@@ -1,47 +1,34 @@
 import * as React from 'react';
 import '../sass/sidebar.scss'
-// import NavBar from "../components/NavBar";
+import NavBar from "../components/NavBar";
 import Sidebar from "../components/Sidebar";
+import {Fragment} from "react";
+import {withStyles} from "@material-ui/styles";
 
-export default class AdminLayout extends React.Component {
+const styles = {
+    root: {
+        background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+        borderRadius: 3,
+        border: 0,
+        color: 'white',
+        height: 48,
+        padding: '0 30px',
+        boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+    },
+};
 
-    // state = {
-    //     accountIsOpen: false,
-    //     sidebarToggled: false,
-    //     sidebarSettings: true,
-    // };
-    //
-    // toggle = toToggle => () => {
-    //     switch (toToggle) {
-    //         case('account'):
-    //             this.setState({accountIsOpen: !this.state.accountIsOpen});
-    //             break;
-    //         case('sidebar'):
-    //             this.setState({sidebarToggled: !this.state.sidebarToggled});
-    //             break;
-    //         case('sidebarSettings'):
-    //             this.setState({sidebarSettings: !this.state.sidebarSettings});
-    //             break;
-    //         default:
-    //             break;
-    //     }
-    // }
-
+class Adminlayout extends React.Component {
 
     render() {
         return (
-            <div className="bg-gray-800 h-screen">
-                {/*<NavBar/>*/}
-                <div className="flex flex-wrap">
-                    <div className="md:w-2/12 md:h-screen">
-                        <Sidebar/>
-                    </div>
-                    <div className="md:w-10/12 p-4 md:border-gray-600">
-                        {this.props.children}
-                    </div>
-                </div>
-            </div>
+            <Fragment>
+
+                <NavBar/>
+                {this.props.children}
+
+            </Fragment>
         );
     }
 }
 
+export default withStyles(styles)(Adminlayout)
