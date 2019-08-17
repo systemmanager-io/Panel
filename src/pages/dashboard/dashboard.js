@@ -1,14 +1,14 @@
 import * as React from 'react';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome/index";
-import Card from "../../components/components/card";
-import CardBody from "../../components/components/cardBody";
+import Card from "../../components/components/card/Card";
+import CardBody from "../../components/components/card/CardBody";
 import {
     faExclamationCircle,
     faExclamationTriangle,
     faInfoCircle,
     faServer
 } from "@fortawesome/free-solid-svg-icons";
-// import Toast from "../../components/Toast";
+import Button from "../../components/components/Button";
 
 export default class Dashboard extends React.Component {
     render() {
@@ -25,7 +25,7 @@ export default class Dashboard extends React.Component {
                                         <FontAwesomeIcon className="text-5xl" icon={faServer}/>
                                     </div>
                                     <div className="w-9/12 h-full">
-                                        <h5 className="justify-center">All Systems OK</h5>
+                                        <h5 className="justify-center text-3xl">All Systems OK</h5>
                                     </div>
                                 </div>
                             </CardBody>
@@ -36,11 +36,12 @@ export default class Dashboard extends React.Component {
                             <CardBody>
                                 <div className="flex flex-wrap">
                                     <div className="w-3/12">
-                                        <FontAwesomeIcon className="text-5xl content-center"
+                                        <FontAwesomeIcon className="text-6xl content-center"
                                                          icon={faExclamationTriangle}/>
                                     </div>
                                     <div className="w-9/12">
-                                        <h5>1 Server requires immediate attention</h5>
+                                        <h5 className="align-middle text-2xl">NL-AMS1-01 </h5>
+                                        <h5>requires immediate attention</h5>
                                     </div>
                                 </div>
                             </CardBody>
@@ -51,10 +52,11 @@ export default class Dashboard extends React.Component {
                             <CardBody>
                                 <div className="flex flex-wrap">
                                     <div className="w-3/12">
-                                        <FontAwesomeIcon className="text-5xl" icon={faInfoCircle}/>
+                                        <FontAwesomeIcon className="text-6xl" icon={faInfoCircle}/>
                                     </div>
                                     <div className="w-9/12">
-                                        <h5 className="align-middle">1 server send a message</h5>
+                                        <h5 className="align-middle text-2xl">NL-AMS1-01 </h5>
+                                        <h5>has send a message</h5>
                                     </div>
                                 </div>
                             </CardBody>
@@ -65,15 +67,22 @@ export default class Dashboard extends React.Component {
                             <CardBody>
                                 <div className="flex flex-wrap">
                                     <div className="w-3/12">
-                                        <FontAwesomeIcon className="text-5xl" icon={faExclamationCircle}/>
+                                        <FontAwesomeIcon className="text-6xl" icon={faExclamationCircle}/>
                                     </div>
                                     <div className="w-9/12">
-                                        <h5 className="align-middle">1 server has a warning</h5>
+                                        <h5 className="align-middle text-2xl">NL-AMS1-01 </h5>
+                                        <h5>has a warning</h5>
                                     </div>
                                 </div>
                             </CardBody>
                         </Card>
                     </div>
+                    <Button color="green">TestButton</Button>
+                    <Button color="yellow">TestButton</Button>
+                    <Button color="red">TestButton</Button>
+                    <Button color="orange">TestButton</Button>
+                    <Button color="blue">TestButton</Button>
+                    <Button>TestButton</Button>
                 </div>
             </div>
         );

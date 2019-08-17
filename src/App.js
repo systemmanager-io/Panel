@@ -9,6 +9,8 @@ import Servers from "./pages/servers";
 import MuiThemeProvider from "@material-ui/core/styles/MuiThemeProvider";
 import createMuiTheme from "@material-ui/core/styles/createMuiTheme";
 import {deepPurple, purple} from "@material-ui/core/colors";
+import Auth from "./components/Auth";
+
 
 const theme = createMuiTheme({
     palette: {
@@ -33,16 +35,18 @@ class App extends React.Component {
     render() {
         return (
             <MuiThemeProvider theme={theme}>
+                <Auth>
                 <Switch>
                     <Route path="/login" exact component={Login}/>
                     <AdminLayout>
-                        <Route path="/dashboard" exact component={Login}/>
-                        <Route path="/servers" exact component={Login}/>
-                        <Route path="/settings/servers" exact component={Login}/>
-                        <Route path="/settings/servers/:id" exact component={Login}/>
+                        <Route path="/dashboard" exact component={Dashboard}/>
+                        <Route path="/servers" exact component={Servers}/>
+                        <Route path="/settings/servers" exact component={Servers}/>
+                        <Route path="/settings/servers/:id" exact component={Servers}/>
                         {/*<Route path="/management" exact component={Management}/>*/}
                     </AdminLayout>
                 </Switch>
+                </Auth>
             </MuiThemeProvider>
         );
     }

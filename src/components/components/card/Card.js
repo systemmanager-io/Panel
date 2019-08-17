@@ -31,7 +31,6 @@ export default class Card extends React.Component {
         }
 
         const className = this.props.className + " " + color + " text-white rounded shadow-lg m-1";
-        console.log(className)
         return (
             <div className={className}>
                 {this.props.children}
