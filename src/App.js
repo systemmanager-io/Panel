@@ -8,7 +8,7 @@ import Login from "./pages/login/login";
 import Servers from "./pages/servers/servers";
 import MuiThemeProvider from "@material-ui/core/styles/MuiThemeProvider";
 import createMuiTheme from "@material-ui/core/styles/createMuiTheme";
-import {deepPurple, purple} from "@material-ui/core/colors";
+import {blue, deepPurple, green, orange, purple, red} from "@material-ui/core/colors";
 import Auth from "./components/Auth";
 
 
@@ -16,13 +16,21 @@ const theme = createMuiTheme({
     palette: {
         type: 'dark',
         primary: deepPurple,
-        secondary: purple
+        secondary: purple,
+
+        danger: red,
+        warning: orange,
+        info: blue,
+        success: green,
+
     },
     typography: {
         useNextVariants: true,
     },
 
-
+    zIndex: {
+        drawer: 1
+    }
 });
 
 class App extends React.Component {

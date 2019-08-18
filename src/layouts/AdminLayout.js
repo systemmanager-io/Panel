@@ -1,20 +1,11 @@
 import * as React from 'react';
 import '../sass/sidebar.scss'
 import NavBar from "../components/NavBar";
-import Sidebar from "../components/Sidebar";
 import {Fragment} from "react";
 import {withStyles} from "@material-ui/styles";
+import {CssBaseline} from "@material-ui/core";
 
-const styles = {
-    root: {
-        background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
-        borderRadius: 3,
-        border: 0,
-        color: 'white',
-        height: 48,
-        padding: '0 30px',
-        boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
-    },
+const styles = theme => {
 };
 
 class Adminlayout extends React.Component {
@@ -22,9 +13,9 @@ class Adminlayout extends React.Component {
     render() {
         return (
             <Fragment>
-
+                <CssBaseline/>
                 <NavBar/>
-                <Sidebar/>
+                {/*<Sidebar/>*/}
                 {this.props.children}
 
             </Fragment>

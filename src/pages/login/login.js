@@ -33,6 +33,7 @@ const styles = theme => ({
     },
     image: {
         // backgroundImage: 'url(https://source.unsplash.com/random)',
+        backgroundImage: 'url(https://res.allmacwallpaper.com/get/iMac-21-inch-wallpapers/Circuit-Board-1920x1080/905-9.jpg)',
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
@@ -72,8 +73,12 @@ class Login extends React.Component {
         };
     };
 
+
     SubmitForm() {
-        this.setState({loading: true})
+        this.setState({loading: true});
+
+        let path = "/dashboard";
+        this.props.history.push(path);
     }
 
 
