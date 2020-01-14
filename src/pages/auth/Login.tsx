@@ -1,14 +1,8 @@
 import React from 'react';
 import {Link} from "react-router-dom";
+import LoginTypes from "../../Types/loginTypes";
 
 interface IProps {
-}
-
-interface IState {
-    loginText: string,
-    loginBarColor: string,
-    emptyUsername?: boolean | undefined,
-    emptyPassword?: boolean | undefined
 }
 
 interface LoginFormValues {
@@ -16,7 +10,7 @@ interface LoginFormValues {
     username: string | null
 }
 
-export default class Login extends React.Component<IProps, IState> {
+export default class Login extends React.Component<IProps, LoginTypes> {
     private readonly loginValue: LoginFormValues;
 
     constructor(props: IProps) {
@@ -59,7 +53,6 @@ export default class Login extends React.Component<IProps, IState> {
             emptyUsername,
             emptyPassword
         } = this.state;
-        console.log(this.state);
 
         return (
             <div>
