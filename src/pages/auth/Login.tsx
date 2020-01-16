@@ -31,9 +31,20 @@ export default class Login extends React.Component<IProps, LoginTypes> {
     }
 
     login() {
+        const emptyString = /^$/;
+        this.setState({emptyUsername: false, emptyPassword: false});
+        let valueEmpty: boolean = false;
+        if (this.loginValue.username == null || emptyString.test(this.loginValue.username)) {
+            this.setState({emptyUsername: true});
+            valueEmpty = true;
+        }
+        if (this.loginValue.password == null || emptyString.test(this.loginValue.password)) {
+            this.setState({emptyPassword: true});
+            valueEmpty = true;
+        }
+        if (valueEmpty) return;
 
-        if (this.loginValue.username == null) this.setState({emptyUsername: true});
-        if (this.loginValue.password == null) this.setState({emptyPassword: true});
+
 
         this.setState({loginText: "Logging in...", loginBarColor: "gray"});
         setTimeout(() => {
@@ -69,11 +80,11 @@ export default class Login extends React.Component<IProps, LoginTypes> {
                                 <div className="mb-4">
                                     <label className={"font-light text-gray-500"}>Username</label><input
                                     onChange={this.handleChange("username")}
-                                    className={`rounded shadow p-2 mt-1 ${emptyUsername ? "border-2 border-red-700" : ""} mb-4 w-full bg-gray-800`}
+                                    className={`rounded shadow p-2 mt-1 ${emptyUsername ? " border-red-700 border" : ""} mb-4 w-full bg-gray-800`}
                                     type="text"/>
                                     <label className={"font-light text-gray-500"}>Password</label><input
                                     onChange={this.handleChange("password")}
-                                    className={`rounded shadow p-2 mt-1 ${emptyPassword ? "border-2 border-red-700" : ""} mb-4 w-full bg-gray-800`}
+                                    className={`rounded shadow p-2 mt-1 ${emptyPassword ? " border-red-700 border" : ""} mb-4 w-full bg-gray-800`}
                                     type="password"/>
                                     <button
                                         onClick={this.login.bind(this)}
