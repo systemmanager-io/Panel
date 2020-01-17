@@ -1,16 +1,8 @@
-import React, { Fragment } from 'react';
+import React, {Fragment} from 'react';
 import {Link} from "react-router-dom";
 
-interface IProps {
-}
-
-interface LoginFormValues {
-    password: string | null,
-    username: string | null
-}
-
-export default class Login extends React.Component<IProps, LoginTypes> {
-    private loginValue: LoginFormValues = {
+export default class Login extends React.Component<{}, LoginTypes> {
+    private loginValue: LoginFormValuesTypes = {
         username: null,
         password: null
     };
@@ -18,15 +10,19 @@ export default class Login extends React.Component<IProps, LoginTypes> {
     public state: LoginTypes = {
         loginText: "Log in",
         loginBarColor: "gray",
+        loginHidden: false,
         emptyUsername: false,
         emptyPassword: false,
     };
 
-
-    public login(): void {
+    public login = (): void => {
         const emptyString = /^$/;
-        this.setState({emptyUsername: false, emptyPassword: false});
         let valueEmpty: boolean = false;
+
+        // Set the empty warnings to false.
+        this.setState({emptyUsername: false, emptyPassword: false});
+
+        // @TODO make better method for this to let it loop and check the stuff.
         if (this.loginValue.username == null || emptyString.test(this.loginValue.username)) {
             this.setState({emptyUsername: true});
             valueEmpty = true;
@@ -36,19 +32,20 @@ export default class Login extends React.Component<IProps, LoginTypes> {
             valueEmpty = true;
         }
         if (valueEmpty) return;
-        this.setState({loginText: "Logging in...", loginBarColor: "gray"});
 
-        // fetch()
+        // After checking go on with logging in into the Dashboard.
+        this.setState({loginText: "Logging in...", loginHidden: true, loginBarColor: "gray"});
 
+        // This is the result of correct credentials. Might make an enum for this to make life easier
+        setTimeout(() => this.setState({loginText: "Login successful", loginBarColor: "green"}), 5000);
 
-        setTimeout(() => {
-            this.setState({loginText: "Wrong Credentials", loginBarColor: "red"})
-        }, 5000);
-
-        setTimeout(() => {
-            this.setState({loginText: "Login successful", loginBarColor: "green"})
-        }, 10000);
-    }
+        // This is the result of wrong credentials. Might make an enum for this to make life easier
+        setTimeout(() => this.setState({
+            loginText: "Wrong Credentials",
+            loginHidden: false,
+            loginBarColor: "red"
+        }), 10000);
+    };
 
     handleChange = (name: "password" | "username") => (event: any) => {
         this.loginValue[name] = event.target.value;
@@ -60,7 +57,8 @@ export default class Login extends React.Component<IProps, LoginTypes> {
             loginText,
             loginBarColor,
             emptyUsername,
-            emptyPassword
+            emptyPassword,
+            loginHidden
         } = this.state;
 
         return (
@@ -73,9 +71,9 @@ export default class Login extends React.Component<IProps, LoginTypes> {
                         <div className="text-left">
                             <div
                                 className={`bg-gray-900 shadow rounded border-t-4 border-` + loginBarColor + `-700 px-8 pt-6 pb-8 mb-4`}>
-                                <h5 unselectable="on" className="text-2xl lg:text-3xl mb-5 font-light">{loginText}</h5>
+                                <h5 className={`text-2xl lg:text-3xl ${!loginHidden ? 'mb-5' : ''} font-light`}>{loginText}</h5>
 
-                                <div className="mb-4">
+                                <div className={`${loginHidden ? 'hidden' : ''} mb-4`}>
                                     <label className={"font-light text-gray-500"}>Username</label><input
                                     onChange={this.handleChange("username")}
                                     className={`rounded shadow p-2 mt-1 ${emptyUsername ? " border-red-700 border" : ""} mb-4 w-full bg-gray-800`}
@@ -96,10 +94,11 @@ export default class Login extends React.Component<IProps, LoginTypes> {
                             </div>
                         </div>
                         <div className={"text-center"}>
-                            <p className="font-light text-gray-600 mb-4 text-xs">Developed by Tigo Middelkoop |
-                                v0.0.4</p>
+                            <p className="font-light text-gray-600 mb-4 text-xs">Developed by Tigo Middelkoop</p>
                             <Link to="/"
-                                  className="bg-gray-900 hover:bg-gray-600 shadow click:bg-gray-700 cursor-pointer font-light px-4 py-2 rounded">Home</Link>
+                                  className={`bg-gray-900 ${loginHidden ? 'hidden' : ''} hover:bg-gray-600 shadow click:bg-gray-700 cursor-pointer border-r border-gray-700 font-light px-4 py-2 rounded-l`}>Home</Link>
+                            <Link to="/auth/register/"
+                                  className={`bg-gray-900 ${loginHidden ? 'hidden' : ''} hover:bg-gray-600 shadow click:bg-gray-700 cursor-pointer font-light px-4 py-2 rounded-r`}>Register</Link>
                         </div>
                     </div>
                 </div>
