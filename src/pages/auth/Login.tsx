@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import {Link} from "react-router-dom";
-import LoginTypes from "../../Types/loginTypes";
 
 interface IProps {
 }
@@ -11,26 +10,20 @@ interface LoginFormValues {
 }
 
 export default class Login extends React.Component<IProps, LoginTypes> {
-    private readonly loginValue: LoginFormValues;
+    private loginValue: LoginFormValues = {
+        username: null,
+        password: null
+    };
 
-    constructor(props: IProps) {
-        super(props);
+    public state: LoginTypes = {
+        loginText: "Log in",
+        loginBarColor: "gray",
+        emptyUsername: false,
+        emptyPassword: false,
+    };
 
-        this.state = {
-            loginText: "Log in",
-            loginBarColor: "gray",
-            // I HAVE THEM DEFINED, THIS IS JUST A MASSIVE AMOUNT OF BULLSHIT LOOK IN THE LOGINTYPES!
-            emptyUsername: false,
-            emptyPassword: false,
-        };
 
-        this.loginValue = {
-            username: null,
-            password: null
-        };
-    }
-
-    login() {
+    public login(): void {
         const emptyString = /^$/;
         this.setState({emptyUsername: false, emptyPassword: false});
         let valueEmpty: boolean = false;
@@ -43,13 +36,18 @@ export default class Login extends React.Component<IProps, LoginTypes> {
             valueEmpty = true;
         }
         if (valueEmpty) return;
-
-
-
         this.setState({loginText: "Logging in...", loginBarColor: "gray"});
+
+        // fetch()
+
+
         setTimeout(() => {
             this.setState({loginText: "Wrong Credentials", loginBarColor: "red"})
         }, 5000);
+
+        setTimeout(() => {
+            this.setState({loginText: "Login successful", loginBarColor: "green"})
+        }, 10000);
     }
 
     handleChange = (name: "password" | "username") => (event: any) => {
@@ -66,16 +64,16 @@ export default class Login extends React.Component<IProps, LoginTypes> {
         } = this.state;
 
         return (
-            <div>
+            <Fragment>
                 <div className="flex flex-wrap items-center justify-center lg:m-0 mr-4 ml-4 h-screen">
-                    <div className="w-full sm:w-6/12 md:w-5/12 lg:w-3/12">
+                    <div className="w-full sm:w-6/12 md:w-5/12 lg:w-4/12 xl:w-3/12">
 
-                        <h3 className="text-4xl text-center md:text-3xl lg:text-4xl xl:text-5xl font-light">SystemManager</h3>
+                        <h1 className="text-4xl text-center xl:text-5xl font-light">SystemManager</h1>
                         <h5 className="text-sm text-center mb-2 font-light">Cloud</h5>
                         <div className="text-left">
                             <div
                                 className={`bg-gray-900 shadow rounded border-t-4 border-` + loginBarColor + `-700 px-8 pt-6 pb-8 mb-4`}>
-                                <h5 className="text-2xl lg:text-3xl mb-5 font-light">{loginText}</h5>
+                                <h5 unselectable="on" className="text-2xl lg:text-3xl mb-5 font-light">{loginText}</h5>
 
                                 <div className="mb-4">
                                     <label className={"font-light text-gray-500"}>Username</label><input
@@ -98,13 +96,14 @@ export default class Login extends React.Component<IProps, LoginTypes> {
                             </div>
                         </div>
                         <div className={"text-center"}>
-                            <p className="font-light text-gray-600 mb-4 text-xs">Developed by Tigo Middelkoop</p>
+                            <p className="font-light text-gray-600 mb-4 text-xs">Developed by Tigo Middelkoop |
+                                v0.0.4</p>
                             <Link to="/"
                                   className="bg-gray-900 hover:bg-gray-600 shadow click:bg-gray-700 cursor-pointer font-light px-4 py-2 rounded">Home</Link>
                         </div>
                     </div>
                 </div>
-            </div>
+            </Fragment>
         );
     }
 };
