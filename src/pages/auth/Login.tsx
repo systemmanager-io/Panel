@@ -1,5 +1,6 @@
 import React, {Fragment} from 'react';
 import {Link} from "react-router-dom";
+import Button from "../../components/Button";
 
 export default class Login extends React.Component<{}, LoginTypes> {
     private loginValue: LoginFormValuesTypes = {
@@ -82,11 +83,7 @@ export default class Login extends React.Component<{}, LoginTypes> {
                                     onChange={this.handleChange("password")}
                                     className={`rounded shadow p-2 mt-1 ${emptyPassword ? " border-red-700 border" : ""} mb-4 w-full bg-gray-800`}
                                     type="password"/>
-                                    <button
-                                        onClick={this.login.bind(this)}
-                                        className="bg-gray-700 hover:bg-gray-600 click:bg-gray-700 cursor-pointer font-bold px-4 py-2 rounded">Log
-                                        In
-                                    </button>
+                                    <Button onClick={this.login.bind(this)}></Button>
                                     <Link to="/auth/forgot_password"
                                           className="text-gray-700 hover:text-gray-600 font-light cursor-pointer font-light px-4 py-2 rounded">Forgot
                                         password</Link>
