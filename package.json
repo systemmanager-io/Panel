@@ -22,14 +22,11 @@
     "typescript": "^3.7.4"
   },
   "scripts": {
-    "build:tailwind": "tailwind build src/css/tailwind.css -o src/css/tailwind.scss",
+    "build:tailwind": "npx tailwind build ./tailwind.css -o src/css/tailwind.scss",
     "start": "npm run build:tailwind && react-scripts start",
     "build": "npm run build:tailwind && react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "build:post": "purgecss --css build/static/css/*.css --content build/static/index.html build/static/js/*.js --out build/static/css",
-    "start:windows": "react-scripts start",
-    "build:windows": "react-scripts build"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -47,7 +44,7 @@
     ]
   },
   "devDependencies": {
-    "@types/jest": "^24.9.0",
+    "@types/jest": "^24.9.1",
     "@types/lodash": "^4.14.149",
     "@types/moment": "^2.13.0",
     "@types/node": "^13.1.6",

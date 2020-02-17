@@ -21,6 +21,6 @@ export default class Button extends React.Component<{}, LoginTypes> {
     }
 
 };
-Button.propTypes = {
-    // children: PropTypes.element.isRequired
-};
+// Button.propTypes = {
+//     children: PropTypes.element.isRequired
+// };

@@ -1,5 +1,5 @@
 declare interface LoginTypes {
-    loginText: string,
+    authText: string,
     loginBarColor: string,
     loginHidden: boolean,
     emptyUsername: boolean | null,

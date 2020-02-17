@@ -7,14 +7,14 @@ import ForgotPassword from "./ForgotPassword";
 export default class Auth extends React.Component {
 
     render() {
-
-        console.log('auth');
         return (
-            <Switch>
-                <Route exact path={`/auth/login`} component={Login}/>
-                <Route exact path={`/auth/register`} component={Register}/>
-                <Route exact path={`/auth/forgot_password`} component={ForgotPassword}/>
-            </Switch>
+            <div className={"h-full"}>
+                <Switch>
+                    <Route exact path={`/auth/login`} component={Login}/>
+                    <Route exact path={`/auth/register`} component={Register}/>
+                    <Route exact path={`/auth/forgot_password`} component={ForgotPassword}/>
+                </Switch>
+            </div>
         );
     }
 };
