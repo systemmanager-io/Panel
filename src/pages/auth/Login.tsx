@@ -1,8 +1,9 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import {Link} from "react-router-dom";
 import Button from "../../components/Button";
 import TextField from "../../components/TextField";
 import AuthDialog from "../../components/ProjectSpecific/AuthDialog";
+import {faKey, faUser} from "@fortawesome/free-solid-svg-icons";
 
 export default class Login extends React.Component<{}, LoginTypes> {
     private loginValue: LoginFormValuesTypes = {
@@ -11,7 +12,7 @@ export default class Login extends React.Component<{}, LoginTypes> {
     };
 
     public state: LoginTypes = {
-        authText: "Log in",
+        authText: "Please log in to continue",
         loginBarColor: "gray",
         loginHidden: false,
         emptyUsername: false,
@@ -36,15 +37,15 @@ export default class Login extends React.Component<{}, LoginTypes> {
         }
         if (valueEmpty) return;
 
-        // After checking go on with logging in into the Dashboard.
-        this.setState({authText: "Logging in...", loginHidden: true, loginBarColor: "gray"});
+        // After checking go on with logging in into the Index.
+        this.setState({authText: "Logging you in...", loginHidden: true, loginBarColor: "gray"});
 
         // This is the result of correct credentials. Might make an enum for this to make life easier
-        setTimeout(() => this.setState({authText: "Login successful", loginBarColor: "green"}), 5000);
+        setTimeout(() => this.setState({authText: "Welcome %name%", loginBarColor: "green"}), 5000);
 
         // This is the result of wrong credentials. Might make an enum for this to make life easier
         setTimeout(() => this.setState({
-            authText: "Wrong Credentials",
+            authText: "Please log in to continue",
             loginHidden: false,
             loginBarColor: "red"
         }), 10000);
@@ -58,21 +59,26 @@ export default class Login extends React.Component<{}, LoginTypes> {
 
         let {
             authText,
-            loginBarColor,
-            emptyUsername,
-            emptyPassword,
-            loginHidden
+            loginBarColor
         } = this.state;
 
-
         return (
-            <AuthDialog authText={"Log In"}>
-                <TextField onChange={this.handleChange("username")} empty={false} type={"text"} label={"Username"}/>
-                <TextField onChange={this.handleChange("password")} empty={false} type={"password"} label={"Password"}/>
-                <Button>Log In</Button>
-                <Link to="/auth/forgot_password"
-                      className="text-gray-700 hover:text-gray-600 font-light cursor-pointer font-light px-4 py-2 rounded">Forgot
-                    password</Link>
+            <AuthDialog authText={authText} loginBarColor={loginBarColor}>
+                <TextField onChange={this.handleChange("username")} icon={faUser} type={"text"} label={"Username"}/>
+                <TextField onChange={this.handleChange("password")} icon={faKey} type={"password"} label={"Password"}/>
+                <div className={"flex"}>
+                    <div className={"flex-1"}>
+                        <Button onClick={this.login} type={"primary"}>Log In</Button>
+                    </div>
+                    <Link to="/forgot_password"
+                          className="text-gray-600 hover:text-gray-600 font-light cursor-pointer font-light px-1  py-2 rounded">Forgot
+                        password</Link>
+                </div>
+                <div className={"w-full mt-4 text-center"}>
+                    <Link to="/register"
+                          className=" text-gray-600 hover:text-gray-600 font-light cursor-pointer font-light">Or,
+                        click here to Register</Link>
+                </div>
             </AuthDialog>
         );
     }

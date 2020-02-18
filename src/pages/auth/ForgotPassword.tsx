@@ -1,6 +1,9 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 import AuthDialog from "../../components/ProjectSpecific/AuthDialog";
+import TextField from "../../components/TextField";
+import {faEnvelope} from "@fortawesome/free-solid-svg-icons";
+import Button from '../../components/Button';
 
 interface IProps {
 }
@@ -40,31 +43,22 @@ export default class Login extends React.Component<IProps, ForgotPasswordTypes> 
             loginText,
             loginBarColor,
             loginHidden,
-            emptyEmail
         } = this.state;
 
         return (
-            <AuthDialog authText={"Forgot Password"}>
+            <AuthDialog authText={loginText} loginBarColor={loginBarColor}>
                 <h5 className={`text-sm lg:text- ${!loginHidden ? 'hidden' : ''} font-light`}>If you are registered you
                     should receive a mail with more instructions</h5>
 
                 <div className={`${loginHidden ? 'hidden' : ''} mb-4`}>
-                    <label className={"font-light text-gray-500"}>Email</label><input
-                    onChange={this.handleChange("email")}
-                    className={`rounded shadow p-2 mt-1 ${emptyEmail ? " border-red-700 border" : ""} mb-4 w-full bg-gray-800`}
-                    type="text"/>
-                    <button
-                        onClick={this.sendMail}
-                        className="bg-gray-700 hover:bg-gray-600 click:bg-gray-700 cursor-pointer font-bold px-4 py-2 rounded">Send
-                        Mail
-                    </button>
-                    <Link to="/auth/login"
-                          className="text-gray-700 hover:text-gray-600 font-light cursor-pointer font-light px-4 py-2 rounded">Login</Link>
-                </div>
-                <div className={`${!loginHidden ? 'hidden' : ''} text-center`}>
-                    <Link to="/auth/login/"
-                          className={` bg-gray-700 hover:bg-gray-600 click:bg-gray-700 cursor-pointer font-bold px-4 py-2 rounded`}>Log
-                        in</Link>
+                    <TextField label={"Email"} type={"text"} icon={faEnvelope} onChange={this.handleChange}/>
+                    <div className={"flex"}>
+                        <div className={"flex-1"}>
+                            <Button onClick={this.sendMail} type={"primary"}>Send Password Reset Link</Button>
+                        </div>
+                        <Link to="/login"
+                              className="text-gray-600 hover:text-gray-600 font-light cursor-pointer font-light py-2 px-1 rounded">Login</Link>
+                    </div>
                 </div>
             </AuthDialog>
         );

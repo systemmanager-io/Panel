@@ -1,6 +1,6 @@
 import React from 'react';
-import {Link} from "react-router-dom";
 import AuthDialog from "../../components/ProjectSpecific/AuthDialog";
+import {Link} from "react-router-dom";
 
 export default class Register extends React.Component<{}, RegisterTypes> {
 
@@ -32,15 +32,18 @@ export default class Register extends React.Component<{}, RegisterTypes> {
     render() {
 
         let {
-            // loginText,
             loginBarColor,
-            // emptyUsername,
-            // emptyPassword,
-            loginHidden
         } = this.state;
 
         return (
-            <AuthDialog authText={"Register"}></AuthDialog>
+            <AuthDialog authText={"Register"} loginBarColor={loginBarColor}>
+
+                <div className={"w-full mt-4 text-center"}>
+                    <Link to="/login"
+                          className=" text-gray-600 hover:text-gray-600 font-light cursor-pointer font-light">Or,
+                        click here to Log in</Link>
+                </div>
+            </AuthDialog>
 
         );
     }
