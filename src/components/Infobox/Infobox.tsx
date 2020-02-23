@@ -3,9 +3,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 type props = {
     type: "primary" | "secondary" | "success" | "info" | "warning" | "danger",
-    icon: any,
-    title: string,
-    desc: string,
+    icon?: any,
 }
 
 export default class Infobox extends React.Component<props, {}> {
@@ -30,7 +28,7 @@ export default class Infobox extends React.Component<props, {}> {
                 break;
             }
             case "warning": {
-                this.colors = {bg: "yellow-500", iconBg: "yellow-600", text: "black"};
+                this.colors = {bg: "yellow-600", iconBg: "yellow-700", text: "black"};
                 break;
             }
             case "danger": {
@@ -42,17 +40,19 @@ export default class Infobox extends React.Component<props, {}> {
         return (
             <Fragment>
                 <div
-                    className={`p-2 m-1 bg-${this.colors.bg} shadow items-center leading-none rounded flex`}
+                    className={`p-2 m-1 bg-${this.colors.bg} break-words shadow items-center leading-none rounded flex`}
                 >
-                        <span
-                            className={`flex rounded bg-${this.colors.iconBg} uppercase justify-center w-16 items-center h-16 text-xs font-bold mr-3`}><FontAwesomeIcon
-                            className={"text-5xl"} icon={this.props.icon}/></span>
+                    {this.props.icon ? <span
+                        style={{minWidth: "4rem"}} // @TODO FIX IN LINUX WITH THE TAILWIND CUSTOM CONFIG OPTIONS!!! (BUILT THIS IN WINDOWS, IKR)
+                        className={`flex rounded bg-${this.colors.iconBg} uppercase justify-center w-16 items-center h-16 text-xs font-bold mr-3`}><FontAwesomeIcon
+                        className={"text-5xl"} icon={this.props.icon}/></span> : ""}
 
 
-                    <div className={"h-16 flex flex-row items-center"}>
+                    <div
+                        style={{minHeight: "4rem"}} // @TODO FIX IN LINUX WITH THE TAILWIND CUSTOM CONFIG OPTIONS!!! (BUILT THIS IN WINDOWS, IKR)
+                        className={"flex flex-row items-center"}>
                         <div className={"flex-row"}>
-                            <h2 className="font-semibold text-xl text-left">{this.props.title}</h2>
-                            <h4 className="text-lg text-left">{this.props.desc}</h4>
+                            {this.props.children}
                         </div>
                     </div>
                 </div>

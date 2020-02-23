@@ -10,6 +10,8 @@
 // To learn more about the benefits of this model and instructions on how to
 // opt-in, read https://bit.ly/CRA-PWA
 
+import {cloudDebug} from "./App";
+
 const isLocalhost = Boolean(
   window.location.hostname === 'localhost' ||
     // [::1] is the IPv6 localhost address.
@@ -40,6 +42,14 @@ export function register(config?: Config) {
     }
 
     // window.addEventListener('fetch', () => {});
+    window.addEventListener("offline", () => {
+      cloudDebug("OFFLINE")
+    });
+
+    window.addEventListener("online", () => {
+      cloudDebug("ONLINE")
+    });
+
 
     window.addEventListener('load', () => {
       const swUrl = `${process.env.PUBLIC_URL}/service-worker.js`;

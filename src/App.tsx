@@ -1,9 +1,10 @@
 import React from 'react';
 import './css/portfolio.scss';
 import './css/tailwind.scss';
-import {Redirect, Route, Switch} from "react-router-dom";
+import {Route, Switch} from "react-router-dom";
 import Homepage from "./pages/Homepage";
 import DashboardRoutes from "./DashboardRoutes";
+import debug from "debug";
 
 
 export default class App extends React.Component<{}, { isLoggedIn: boolean }> {
@@ -19,3 +20,9 @@ export default class App extends React.Component<{}, { isLoggedIn: boolean }> {
         );
     }
 };
+
+
+
+const appDebug = debug("systemmanager");
+export const cloudDebug = appDebug.extend("cloud");
+cloudDebug.enabled = true;

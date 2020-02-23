@@ -1,6 +1,6 @@
 import React from "react";
 
-export default class Pill extends React.Component<{ type: "primary" | "secondary" | "success" | "info" | "warning" | "danger" }, any> {
+export default class Pill extends React.Component<{className?: any, type: "primary" | "secondary" | "success" | "info" | "warning" | "danger" }, any> {
 
     colors: {bg: string, hover?: string, text: string} = {bg: "bg-red-700",  text: "white"};
 
@@ -23,7 +23,7 @@ export default class Pill extends React.Component<{ type: "primary" | "secondary
                 break;
             }
             case "warning": {
-                this.colors = {bg: "yellow-500", text: "black"};
+                this.colors = {bg: "yellow-600", text: "white"};
                 break;
             }
             case "danger": {
@@ -31,6 +31,6 @@ export default class Pill extends React.Component<{ type: "primary" | "secondary
                 break;
             }
         }
-        return (<span className={`px-1 shadow bg-${this.colors.bg} text-${this.colors.text} rounded`}>{this.props.children}</span>)
+        return (<span className={`${this.props.className} rounded px-1 shadow bg-${this.colors.bg} text-${this.colors.text} rounded`}>{this.props.children}</span>)
     }
 }

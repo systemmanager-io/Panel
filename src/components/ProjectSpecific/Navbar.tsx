@@ -4,7 +4,7 @@ import {faUser, faBars} from '@fortawesome/free-solid-svg-icons';
 
 
 export default class Navbar extends React.Component<{onDrawerOpen: Function}, {drawerOpen: boolean}> {
-    drawerOpen: boolean = false
+    drawerOpen: boolean = false;
 
     openDrawer = () => {
         this.drawerOpen = !this.drawerOpen;

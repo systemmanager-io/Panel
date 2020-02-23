@@ -1,7 +1,7 @@
 import React, {Fragment} from 'react';
 
 export default class Button extends React.Component<{ type: "primary" | "secondary" | "info" | "warning" | "danger", onClick: Function }, LoginTypes> {
-    colors = {bg: "bg-gray-700", hover: "bg-gray-600", text: "text-white"}
+    colors = {bg: "bg-gray-700", hover: "bg-gray-600", text: "text-white"};
 
     handleClick = (event: any) => {
         this.props.onClick(event);
