@@ -5,7 +5,7 @@ export default class DashboardPage extends React.Component<any, any>{
 
     render() {
         return (
-            <div className={"px-4 py-3"}>
+            <div className={"mx-4 my-3"}>
                 {this.props.children}
             </div>
         )

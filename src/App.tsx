@@ -1,18 +1,28 @@
 import React from 'react';
 import './css/tailwind.scss';
 import {Route, Switch} from "react-router-dom";
-import Homepage from "./pages/Homepage";
-import DashboardRoutes from "./DashboardRoutes";
 import debug from "debug";
+import Dashboard from "./pages/dashboard";
+import Login from "./pages/auth/Login";
+import Register from "./pages/auth/Register";
+import ForgotPassword from "./pages/auth/ForgotPassword";
 
 
 export default class App extends React.Component<{}, { isLoggedIn: boolean }> {
 
     render() {
         return (
-            <Switch>
-                <Route path="/" component={DashboardRoutes}/>
-            </Switch>
+            <div className={"bg-gray-800"}>
+
+                {/*{this.state.isLoggedIn ? <Redirect to="/clients/dashboard/servers"/> : <Redirect to="/clients/login"/>}*/}
+
+                <Switch>
+                    <Route path="/dashboard" component={Dashboard}/>
+                    <Route exact path={`/login`} component={Login}/>
+                    <Route exact path={`/register`} component={Register}/>
+                    <Route exact path={`/forgot_password`} component={ForgotPassword}/>
+                </Switch>
+            </div>
         );
     }
 };

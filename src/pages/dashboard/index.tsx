@@ -13,8 +13,7 @@ export default class Dashboard extends React.Component<{}, { drawerOpen: boolean
     render() {
         return (
             <Fragment>
-                {/*<Navbar onDrawerOpen={(value: boolean) => this.setState({drawerOpen: value})}/>*/}
-                <div className={"flex h-full overflow-hidden"}>
+                <div className={"block md:flex"}>
                     <div>
                         <Drawer/>
                     </div>

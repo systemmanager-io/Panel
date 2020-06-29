@@ -1,16 +1,12 @@
-import React from "react";
+import React from "react"
 
-export default class DrawerCategory extends React.Component<{ title: string }, any> {
-
-
-    render() {
-        return (
-            <div className={"border-gray-500"}>
-                <p className={"font-light text-xs bg-gray-800 py-2 px-4 text-gray-500"}>{this.props.title}</p>
-                <div>
-                    {this.props.children}
-                </div>
+export default function DrawerCategory(props: { title: string, children: any }) {
+    return (
+        <div className={"border-gray-500"}>
+            <p className={"m-1 px-4 py-1 text-sm text-gray-700"}>{props.title}</p>
+            <div>
+                {props.children}
             </div>
-        )
-    }
+        </div>
+    )
 }

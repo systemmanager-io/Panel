@@ -1,32 +1,31 @@
-import React, {Fragment} from "react";
+import React, {useState, Fragment, ReactComponentElement} from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faAngleDown, faAngleLeft} from "@fortawesome/free-solid-svg-icons";
 
-export default class DrawerDropdown extends React.Component<{ icon: any, title: string }, { itemsHidden: boolean }> {
+export default function DrawerDropdown(props: { icon: any, title: string, children: any }): ReactComponentElement<any> {
+    const [itemsHidden, setItemsHidden] = useState(true);
 
-    state = {
-        itemsHidden: true
+
+    function openDropdown(){
+        setItemsHidden(!itemsHidden)
     };
 
-    openDropdown = () => {
-        this.setState({itemsHidden: !this.state.itemsHidden})
-    };
+    console.log(itemsHidden);
 
-
-    render(): any {
-        const {itemsHidden} = this.state;
-        return (
-            <Fragment>
-                <div onClick={this.openDropdown} className={"cursor-pointer m-1 px-4 py-3 rounded-md text-sm text-gray-600 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"}>
-                    <div className={"flex"}>
-                        <FontAwesomeIcon className={"flex mr-2 w-4 text self-center"} icon={this.props.icon}/>
-                        <p className={"flex-1"}>{this.props.title}</p>
-                        <FontAwesomeIcon className={"self-center w-4"} icon={itemsHidden ? faAngleLeft : faAngleDown}/>
-                    </div>
+    return (
+        <Fragment>
+            <div onClick={openDropdown}
+                 className={"cursor-pointer m-1 px-4 py-3 rounded-md text-sm text-gray-600 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"}>
+                <div className={"flex"}>
+                    <FontAwesomeIcon className={"flex mr-2 w-4 text self-center"} icon={props.icon}/>
+                    <p className={"flex-1"}>{props.title}</p>
+                    <FontAwesomeIcon className={`transition duration-500 self-center w-4 transform ${itemsHidden ? "rotate-90" : ".rotate-0"}`} icon={faAngleDown}/>
                 </div>
-                <div className={`ml-4 ${itemsHidden ? "hidden" : "block"}`}>{this.props.children}</div>
-            </Fragment>
-        )
-    }
+            </div>
+            <div className={`transition duration-500 ml-4 ${itemsHidden ? "hidden" : "block"}`}>{props.children}</div>
+        </Fragment>
+    )
 }
+
+
 
