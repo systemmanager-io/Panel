@@ -1,5 +1,4 @@
 import React from 'react';
-import './css/portfolio.scss';
 import './css/tailwind.scss';
 import {Route, Switch} from "react-router-dom";
 import Homepage from "./pages/Homepage";
@@ -11,18 +10,15 @@ export default class App extends React.Component<{}, { isLoggedIn: boolean }> {
 
     render() {
         return (
-            <div className={"text-white"}>
-                <Switch>
-                    <Route exact path="/" component={Homepage}/>
-                    <Route path="/clients" component={DashboardRoutes}/>
-                </Switch>
-            </div>
+            <Switch>
+                <Route path="/" component={DashboardRoutes}/>
+            </Switch>
         );
     }
 };
 
 
-
+export const version = "v0.0.3c-alpha";
 const appDebug = debug("systemmanager");
 export const cloudDebug = appDebug.extend("cloud");
 cloudDebug.enabled = true;

@@ -1,5 +1,4 @@
 import React from 'react';
-import './css/portfolio.scss';
 import './css/tailwind.scss';
 import {Redirect, Route, Switch} from "react-router-dom";
 import Login from "./pages/auth/Login";
@@ -19,15 +18,15 @@ export default class App extends React.Component<{}, { isLoggedIn: boolean }> {
     };
     render() {
         return (
-            <div className={"text-white"}>
+            <div className={"bg-gray-800"}>
 
-                {this.state.isLoggedIn ? <Redirect to="/clients/dashboard/overview"/> : <Redirect to="/clients/login"/>}
+                {/*{this.state.isLoggedIn ? <Redirect to="/clients/dashboard/servers"/> : <Redirect to="/clients/login"/>}*/}
 
                 <Switch>
-                    <Route path="/clients/dashboard" component={Dashboard}/>
-                    <Route exact path={`/clients/login`} component={Login}/>
-                    <Route exact path={`/clients/register`} component={Register}/>
-                    <Route exact path={`/clients/forgot_password`} component={ForgotPassword}/>
+                    <Route path="/dashboard" component={Dashboard}/>
+                    <Route exact path={`/login`} component={Login}/>
+                    <Route exact path={`/register`} component={Register}/>
+                    <Route exact path={`/forgot_password`} component={ForgotPassword}/>
                 </Switch>
             </div>
         );

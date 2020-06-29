@@ -1,3 +1,18 @@
+@import url('https://fonts.googleapis.com/css?family=Muli:300,400,700&display=swap');
+
+html {
+    font-family: 'Muli', sans-serif;
+}
+
+.serverbooting {
+    animation: rotation 2s infinite linear;
+}
+
+.test {
+    filter: blur(15px);
+}
+
+
 @tailwind base;
 
 @tailwind components;

@@ -1,6 +1,8 @@
 module.exports = {
   theme: {
-    extend: {}
+    extend: {
+      drawerHover: "#362F78"
+    }
   },
   variants: {},
   plugins: []

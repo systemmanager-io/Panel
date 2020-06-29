@@ -13,14 +13,15 @@ export default class Dashboard extends React.Component<{}, { drawerOpen: boolean
     render() {
         return (
             <Fragment>
-                <Navbar onDrawerOpen={(value: boolean) => this.setState({drawerOpen: value})}/>
+                {/*<Navbar onDrawerOpen={(value: boolean) => this.setState({drawerOpen: value})}/>*/}
                 <div className={"flex h-full overflow-hidden"}>
-                    <div><Drawer drawerOpen={this.state.drawerOpen}/></div>
-
+                    <div>
+                        <Drawer/>
+                    </div>
                     <div className={"flex-1"}>
                         <Switch>
-                            <Route exact path="/clients/dashboard/overview" component={Overview}/>
-                            <Route exact path="/clients/dashboard/servers" component={Servers}/>
+                            <Route path="/dashboard/overview" component={Overview}/>
+                            <Route exact path="/dashboard/servers" component={Servers}/>
                         </Switch>
                     </div>
                 </div>

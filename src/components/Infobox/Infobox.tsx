@@ -40,11 +40,11 @@ export default class Infobox extends React.Component<props, {}> {
         return (
             <Fragment>
                 <div
-                    className={`p-2 m-1 bg-${this.colors.bg} break-words shadow items-center leading-none rounded flex`}
+                    className={`p-2 m-1 bg-${this.colors.bg} break-words shadow items-center leading-none rounded-lg flex`}
                 >
                     {this.props.icon ? <span
                         style={{minWidth: "4rem"}} // @TODO FIX IN LINUX WITH THE TAILWIND CUSTOM CONFIG OPTIONS!!! (BUILT THIS IN WINDOWS, IKR)
-                        className={`flex rounded bg-${this.colors.iconBg} uppercase justify-center w-16 items-center h-16 text-xs font-bold mr-3`}><FontAwesomeIcon
+                        className={`flex rounded-lg bg-${this.colors.iconBg} uppercase justify-center w-16 items-center h-16 text-xs font-bold mr-3`}><FontAwesomeIcon
                         className={"text-5xl"} icon={this.props.icon}/></span> : ""}
 
 

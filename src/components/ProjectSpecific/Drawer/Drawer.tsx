@@ -1,68 +1,82 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import {
     faServer,
     faUsersCog,
     faTachometerAlt,
     faList,
     faFileAlt,
-    faFileInvoiceDollar, faLayerGroup, faCodeBranch, faUsers, faAngleDown
+    faUsers,
+    faCogs
 } from '@fortawesome/free-solid-svg-icons';
 import Pill from "../../Pill";
 import DrawerItem from "./DrawerItem";
 import DrawerCategory from "./DrawerCategory";
 import DrawerDropdown from './DrawerDropdown';
 import DrawerFooter from "./DrawerFooter";
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {cloudDebug} from "../../../App";
+import {cloudDebug, version} from "../../../App";
 
 
-export default class Drawer extends React.Component<{ drawerOpen: boolean }, LoginTypes> {
+export default class Drawer extends React.Component<any, { hidden: boolean }> {
+    state = {
+        hidden: true
+    }
+
+    drawerButton = () => {
+        this.setState({hidden: !this.state.hidden})
+    }
+
     render() {
         return (
-            <div
-                className={`w-64 ${this.props.drawerOpen ? "block" : "hidden"} sm:block min-h-full sm:w-64 bg-gray-700 shadow`}>
-                <div className={"p-4 bg-gray-900"}>
-                    <div className={"flex text-sm font-mono truncate mb-2"}>
-                        <img className={"self-center h-12 w-12 rounded-full border border-gray-600 mr-2"}
-                             src={"https://genericdevelopment.nl/static/media/photo.22ca8cd3.jpg"} alt={"Organization Logo"}/>
-                        <div className={"self-center"}>
-                            <p className={"text-xs"}>Organization: </p>
-                            <p onClick={() => cloudDebug("Click Dropdown")} className={"bg-gray-800  px-2 py-1 cursor-pointer select-none rounded shadow mt-1"}><span className={"mr-1"}>GenericDevelopment</span><FontAwesomeIcon icon={faAngleDown}/></p>
-                        </div>
-                    </div>
-                    <div className={"flex flex-wrap text-sm text-center font-mono"}>
-                        <Pill className={"mr-1 mb-1"} type={"success"}>12 OK</Pill>
-                        <Pill className={"mr-1 mb-1"} type={"warning"}>6 WARNING</Pill>
-                        <Pill className={"mr-1 mb-1"} type={"danger"}>1 CRITICAL</Pill>
-                        <Pill className={"mr-1 mb-1"} type={"primary"}>1 UNKNOWN</Pill>
+            <div className={"bg-gray-900"}>
+                <div className={"w-screen sm:w-64 flex p-2 flex-1"}>
+                    <h1 className={"text-2xl flex-1 sm:w-64 text-white text-center"}>SystemManager</h1>
+                    <div className="mr-1 flex md:hidden">
+                        <button onClick={this.drawerButton}
+                                className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-white">
+                            <svg className="block h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                      d="M4 6h16M4 12h16M4 18h16"/>
+                            </svg>
+                            <svg className="hidden h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                      d="M6 18L18 6M6 6l12 12"/>
+                            </svg>
+                        </button>
                     </div>
                 </div>
-                <div>
-                    <DrawerCategory title={"General"}>
-                        <DrawerItem to={"/clients/dashboard/overview"} icon={faTachometerAlt}>Dashboard</DrawerItem>
-                        <DrawerItem to={"/clients/dashboard/servers"} icon={faServer}>Servers</DrawerItem>
-                        <DrawerItem to={"/clients/dashboard/categories"} icon={faList}>Categories</DrawerItem>
-                        <DrawerItem to={"/clients/dashboard/logs"} icon={faFileAlt}>Logs</DrawerItem>
-                    </DrawerCategory>
-                    <DrawerCategory title={"User Management"}>
-                        <DrawerItem to={"/clients/dashboard/users"} icon={faUsers}>Users</DrawerItem>
-                        <DrawerDropdown icon={faUsersCog} title={"Permission Management"}>
-                            <DrawerItem to={"/clients/dashboard/permissions/groups"}
-                                        icon={faUsersCog}>Roles</DrawerItem>
-                            <DrawerItem to={"/clients/dashboard/permissions/permissions"}
-                                        icon={faUsersCog}>Permissions</DrawerItem>
-                        </DrawerDropdown>
-                    </DrawerCategory>
-                    <DrawerCategory title={"Instances"}>
-                        <DrawerItem to={"/clients/dashboard/instances"} icon={faLayerGroup}>Instances</DrawerItem>
-                    </DrawerCategory>
-                    <DrawerCategory title={"Billing"}>
-                        <DrawerItem to={"/clients/dashboard/billing"} icon={faFileInvoiceDollar}>Billing</DrawerItem>
-                    </DrawerCategory>
+                <div
+                    className={`${this.state.hidden ? "hidden" : "block"} w-full md:block font-semibold w-64 min-h-full sm:w-64 shadow`}>
+                    <div>
+                        <DrawerItem to={"/dashboard/overview"} icon={faTachometerAlt}>Dashboard</DrawerItem>
+                        <DrawerItem to={"/dashboard/servers"} icon={faServer}>Servers</DrawerItem>
+                        <DrawerItem to={"/dashboard/categories"} icon={faList}>Categories</DrawerItem>
+                        <DrawerItem to={"/dashboard/logs"} icon={faFileAlt}>Logs</DrawerItem>
 
-                    <DrawerFooter icon={faCodeBranch}><span
-                        className={"font-light"}>{require('../../../../package.json').version} <Link className={"text-blue-700 hover:underline"} to={"/feedback"}>(Feedback)</Link></span></DrawerFooter>
+                        <DrawerDropdown icon={faUsersCog} title={"Team"}>
+                            <DrawerItem to={"/dashboard/users"} icon={faUsers}>Users</DrawerItem>
+                            <DrawerDropdown icon={faUsersCog} title={"Permissions"}>
+                                <DrawerItem to={"/dashboard/permissions/groups"}
+                                            icon={faUsersCog}>Roles</DrawerItem>
+                                <DrawerItem to={"/dashboard/permissions/permissions"}
+                                            icon={faUsersCog}>Permissions</DrawerItem>
+                            </DrawerDropdown>
+                        </DrawerDropdown>
+                        <DrawerItem to={"/dashboard/settings"} icon={faCogs}>Settings</DrawerItem>
+
+
+                        <div className={"flex text-xs text-gray-600 border-t border-gray-800 px-4 py-3"}>
+                            <img className={"h-10 w-10 rounded-full mr-2"}
+                                 src={"https://genericdevelopment.nl/static/media/profilepicture.66f5dc0f.png"}
+                                 alt={"Profile logo"}/>
+                            <div className={"self-center"}>
+                                <p className={"text-white truncate"}>John Doe</p>
+                                <Link to={"/dashboard/profile"} className={"cursor-pointer hover:text-white"}>View
+                                    Profile</Link>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         );

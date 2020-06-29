@@ -11,7 +11,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import InfoboxTitle from "../../components/Infobox/InfoboxTitle";
 import InfoboxDescription from "../../components/Infobox/InfoboxDescription";
-import {faInfo} from "@fortawesome/free-solid-svg-icons/faInfo";
 import {cloudDebug} from "../../App";
 
 export default class Overview extends React.Component<{}, {}> {

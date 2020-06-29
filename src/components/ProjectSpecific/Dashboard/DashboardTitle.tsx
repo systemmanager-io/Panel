@@ -6,11 +6,11 @@ export default class DashboardTitle extends React.Component<{ title: string, sub
     render() {
         return (
             <Fragment>
-                <div className={"pb-2 mb-2 border-gray-700 border-b"}>
-                    <p className={"text-5xl font-light"}>
+                <div className={"text-base pb-2 font-medium text-white focus:outline-none focus:text-white focus:bg-gray-700 border-b border-gray-700"}>
+                    <p className={"text-5xl font-semibold"}>
                         {this.props.title}
                     </p>
-                    <p className={"text-xl font-light"}>
+                    <p className={"text-lg font-light"}>
                         {this.props.subtitle}
                     </p>
                 </div>

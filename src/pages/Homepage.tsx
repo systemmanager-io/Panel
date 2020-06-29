@@ -2,6 +2,7 @@ import React, {Fragment} from 'react';
 import {Link} from "react-router-dom";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faBars, faSignInAlt, faTimes} from "@fortawesome/free-solid-svg-icons";
+import { version } from '../App';
 
 export default class Homepage extends React.Component<{}, HomepageTypes> {
     state = {
@@ -50,14 +51,14 @@ export default class Homepage extends React.Component<{}, HomepageTypes> {
 
 
                 {/* Body Content */}
-                <div className={"flex justify-center items-center h-full align-middle"}>
+                <div className={"flex h-screen justify-center items-center align-middle"}>
                     <div>
                         <h3 className={"text-4xl lg:text-5xl font-light"}>SystemManager Cloud</h3>
                         <h5 className={"text-sm mb-5 font-light"}>The place for your SystemManager Plugins &
                             Hosting!</h5>
 
 
-                        <p className="text-xs mt-5 font-light text-gray-600">{require('../../package.json').version}</p>
+                        <p className="text-xs mt-5 font-light text-gray-600">{version}</p>
                     </div>
                 </div>
             </Fragment>
