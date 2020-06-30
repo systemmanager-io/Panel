@@ -13,12 +13,14 @@ import DrawerCategory from "./DrawerCategory";
 import DrawerDropdown from './DrawerDropdown';
 import {Link} from 'react-router-dom';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import Time from "../../Time";
+import Version from "../../Version";
 
-
+let timeinterval: any;
 export default class Drawer extends React.Component<any, { signoutDropdown: boolean, hidden: boolean }> {
     state = {
         hidden: true,
-        signoutDropdown: true
+        signoutDropdown: true,
     }
 
     drawerButton = () => {
@@ -28,6 +30,7 @@ export default class Drawer extends React.Component<any, { signoutDropdown: bool
     signoutDropdownButton = () => {
         this.setState({signoutDropdown: !this.state.signoutDropdown})
     }
+
 
     render() {
         return (
@@ -76,6 +79,11 @@ export default class Drawer extends React.Component<any, { signoutDropdown: bool
                     </div>
                 </div>
                 <div
+                    className={`${this.state.hidden ? "hidden" : "flex"} md:flex flex-col text-gray-600 border-t border-gray-800 px-4 py-3`}>
+                    <Time/>
+                    <Version/>
+                </div>
+                <div
                     className={`${this.state.hidden ? "hidden" : "flex"} md:flex  text-gray-600 border-t border-gray-800 px-4 py-3`}>
                     <div className={"flex flex-1 text-xs"}>
                         <img className={"h-10 w-10 rounded-full mr-2"}
@@ -88,10 +96,12 @@ export default class Drawer extends React.Component<any, { signoutDropdown: bool
                         </div>
                     </div>
                     <div className={"flex"}>
-                        <FontAwesomeIcon className={"self-center md:mr-2 mr-4 text-2xl md:text-xl hover:text-white"}
-                                         icon={faLock}/>
-                        <FontAwesomeIcon className={"self-center text-2xl md:text-xl hover:text-red-700"}
-                                         icon={faSignOutAlt}/>
+                        <Link className={"self-center md:mr-2 mr-4"} to={"/lockscreen"}><FontAwesomeIcon
+                            className={"text-2xl md:text-xl hover:text-white"}
+                            icon={faLock}/></Link>
+                        <Link className={"self-center text-2xl md:text-xl"} to={"/login"}><FontAwesomeIcon
+                            className={"text-2xl md:text-xl hover:text-red-700"}
+                            icon={faSignOutAlt}/></Link>
                     </div>
                 </div>
             </div>

@@ -1,6 +1,6 @@
 {
-  "short_name": "SystemManager Cloud",
-  "name": "SystemManager Cloud Dashboard",
+  "short_name": "SystemManager Dashboard",
+  "name": "SystemManager Dashboard",
   "icons": [
     {
       "src": "favicon.ico",
@@ -18,7 +18,7 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": "/dashboard",
+  "start_url": "/dashboard/overview",
   "display": "standalone",
   "theme_color": "#2d3748",
   "background_color": "#2d3748"

@@ -4,6 +4,8 @@ import AuthDialog from "../../components/ProjectSpecific/AuthDialog";
 import TextField from "../../components/TextField";
 import {faEnvelope} from "@fortawesome/free-solid-svg-icons";
 import Button from '../../components/Button';
+import Time from "../../components/Time";
+import Version from "../../components/Version";
 
 interface IProps {
 }
@@ -66,10 +68,10 @@ export default class Login extends React.Component<IProps, ForgotPasswordTypes> 
                         </div>
 
                         <div className="mt-6">
-                            <button type="submit"
+                            <Link to={"/login"} type="submit"
                                     className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out">
                                 Send that mail!
-                            </button>
+                            </Link>
                         </div>
                         <div className={"w-full mt-2 text-center"}>
                             <Link
@@ -77,6 +79,9 @@ export default class Login extends React.Component<IProps, ForgotPasswordTypes> 
                                 to={"/login"}>Or, sign in</Link>
                         </div>
                     </div>
+                </div>
+                <div className={"absolute bottom-0 left-0 text-gray-600 py-3 px-4"}>
+                    <Time /> <Version/>
                 </div>
             </div>
         );
