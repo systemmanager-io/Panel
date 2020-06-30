@@ -13,8 +13,8 @@ export default class Dashboard extends React.Component<{}, { drawerOpen: boolean
     render() {
         return (
             <Fragment>
-                <div className={"block md:flex"}>
-                    <div>
+                <div className={"min-h-screen block md:flex"}>
+                    <div className={""}>
                         <Drawer/>
                     </div>
                     <div className={"flex-1"}>

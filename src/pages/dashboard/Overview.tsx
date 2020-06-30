@@ -22,8 +22,7 @@ export default class Overview extends React.Component<{}, {}> {
             <Fragment>
                 <DashboardPage>
                     <DashboardTitle title={"Overview"} subtitle={"A quick glance on the statusses of everything"}/>
-                    <p className={"font-mono"}>(Everything is placed weird on purpose to show me if I fixed/fucked up
-                        something)</p> {/* @TODO REMOVE WHEN RELEASING V1!!!!!!!!*/}
+
                     <DashboardContent>
                         <div className={"flex flex-wrap"}>
                             <div className={"w-full flex-auto sm:w-6/12 lg:w-4/12 xl:w-3/12"}>

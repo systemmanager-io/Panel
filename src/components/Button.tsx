@@ -51,7 +51,7 @@ export default class Button extends React.Component<{ type: "primary" | "seconda
             <Fragment>
                 <button
                     onClick={this.handleClick}
-                    className={`${this.colors.bg} hover:${this.colors.hover} click:${this.colors.hover}  ${this.colors.text} text-center ${this.size} cursor-pointer rounded`}>{this.props.children}
+                    className={`px-2 py-1 ${this.colors.bg} hover:${this.colors.hover} click:${this.colors.hover}  ${this.colors.text} text-center ${this.size} cursor-pointer rounded`}>{this.props.children}
                 </button>
             </Fragment>
         );

@@ -13,6 +13,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import {Link} from "react-router-dom";
 import Button from "../../components/Button";
+import DashboardContent from "../../components/ProjectSpecific/Dashboard/DashboardContent";
 
 export default class Servers extends React.Component<{}, {}> {
 
@@ -22,7 +23,7 @@ export default class Servers extends React.Component<{}, {}> {
             <Fragment>
                 <DashboardPage>
                     <DashboardTitle title={"Servers"} subtitle={"All servers in the system"}/>
-                    <div className={"w-full"}>
+                    <DashboardContent className={"w-full"}>
                         <Table>
                             <thead className={"border-b border-gray-700"}>
                             <tr className={"text-left"}>
@@ -73,7 +74,7 @@ export default class Servers extends React.Component<{}, {}> {
                             </tr>
                             </tbody>
                         </Table>
-                    </div>
+                    </DashboardContent>
                 </DashboardPage>
             </Fragment>
         );

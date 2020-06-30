@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Muli:300,400,700&display=swap');
 
+.test {
+  -webkit-animation: slide 0.5s forwards;
+          animation: slide 0.5s forwards;
+}
+
 html {
   font-family: 'Muli', sans-serif;
 }
@@ -7,11 +12,6 @@ html {
 .serverbooting {
   -webkit-animation: rotation 2s infinite linear;
           animation: rotation 2s infinite linear;
-}
-
-.test {
-  -webkit-filter: blur(15px);
-          filter: blur(15px);
 }
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */

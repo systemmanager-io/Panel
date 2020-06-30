@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Muli:300,400,700&display=swap');
 
+.test {
+    animation: slide 0.5s forwards;
+}
+
 html {
     font-family: 'Muli', sans-serif;
 }
@@ -7,11 +11,6 @@ html {
 .serverbooting {
     animation: rotation 2s infinite linear;
 }
-
-.test {
-    filter: blur(15px);
-}
-
 
 @tailwind base;
 
