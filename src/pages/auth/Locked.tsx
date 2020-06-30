@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from "react-router-dom";
 import AuthDialog from "../../components/ProjectSpecific/AuthDialog";
 import TextField from "../../components/TextField";
-import {faEnvelope, faSignOutAlt} from "@fortawesome/free-solid-svg-icons";
+import {faAngleDown, faAngleRight, faEnvelope, faSignOutAlt} from "@fortawesome/free-solid-svg-icons";
 import Button from '../../components/Button';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
@@ -40,12 +40,13 @@ export default class Locked extends React.Component<IProps, ForgotPasswordTypes>
     render() {
 
         return (
-            <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+            <div
+                className=" min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
                 <div className="max-w-md w-full">
                     <div>
-                        <img className="mx-auto h-32 rounded-full w-auto"
+                        <img className="mx-auto h-32 rounded-full w-32"
                              src="https://genericdevelopment.nl/static/media/profilepicture.66f5dc0f.png"
-                             alt="Workflow"/>
+                             alt="Profile picture"/>
                         <h2 className="mt-6 text-center text-3xl leading-9 font-extrabold text-white">
                             Welcome back,
                         </h2>

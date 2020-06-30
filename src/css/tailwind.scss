@@ -10,8 +10,20 @@ html {
 }
 
 .serverbooting {
-  -webkit-animation: rotation 2s infinite linear;
-          animation: rotation 2s infinite linear;
+  -webkit-animation: blinker 2s linear infinite;
+          animation: blinker 2s linear infinite;
+}
+
+@-webkit-keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
 }
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */

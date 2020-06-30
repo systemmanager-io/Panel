@@ -32,8 +32,11 @@ export default class Drawer extends React.Component<any, { signoutDropdown: bool
     render() {
         return (
             <div className={"md:min-h-screen flex overflow-hidden flex-col bg-gray-900"}>
-                <div className={"flex w-full md:w-64 max-h-4 p-2"}>
+                <div className={"flex w-full md:w-64 items-center p-2"}>
                     <h1 className={"text-2xl flex-1 text-white text-center"}>SystemManager</h1>
+                    {/*<div className={"text-2xl p-4 flex-1 text-white"}>*/}
+                    {/*    <img className={"hidden md:block md:h-12"} src={"https://tailwindui.com/img/logos/workflow-logo-on-dark.svg"}/>*/}
+                    {/*</div>*/}
                     <div className="mr-1 md:hidden">
                         <button onClick={this.drawerButton}
                                 className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-white">
