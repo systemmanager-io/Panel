@@ -15,6 +15,7 @@ import {Link} from 'react-router-dom';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import Time from "../../Time";
 import Version from "../../Version";
+import {faPowerOff} from "@fortawesome/free-solid-svg-icons/faPowerOff";
 
 export default class Drawer extends React.Component<any, { signoutDropdown: boolean, hidden: boolean }> {
     state = {
@@ -95,12 +96,12 @@ export default class Drawer extends React.Component<any, { signoutDropdown: bool
                         </div>
                     </div>
                     <div className={"flex"}>
-                        <Link className={"self-center md:mr-2 mr-4"} to={"/lockscreen"}><FontAwesomeIcon
-                            className={"text-2xl md:text-xl hover:text-white"}
-                            icon={faLock}/></Link>
-                        <Link className={"self-center text-2xl md:text-xl"} to={"/login"}><FontAwesomeIcon
-                            className={"text-2xl md:text-xl hover:text-red-700"}
-                            icon={faSignOutAlt}/></Link>
+                        {/*<Link className={"self-center px-2 mr-1 py-2 hover:bg-gray-700 hover:text-red-700 rounded"} to={"/lockscreen"}><FontAwesomeIcon*/}
+                        {/*    className={"text-2xl md:text-xl hover:text-white"}*/}
+                        {/*    icon={faLock}/></Link>*/}
+                        {/*<Link className={"self-center px-2 py-2 hover:bg-gray-700 hover:text-red-700 rounded"} to={"/login"}><FontAwesomeIcon*/}
+                        {/*    className={"text-2xl md:text-xl"}*/}
+                        {/*    icon={faSignOutAlt}/></Link>*/}
                     </div>
                 </div>
                 <a href={"https://systemmanager.io"} referrerPolicy={"_blank"}

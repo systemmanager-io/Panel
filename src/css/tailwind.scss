@@ -10,19 +10,19 @@ html {
 }
 
 .serverbooting {
-  -webkit-animation: blinker 2s linear infinite;
-          animation: blinker 2s linear infinite;
+  -webkit-animation: blinker 0.5s linear infinite;
+          animation: blinker 0.5s linear infinite;
 }
 
 @-webkit-keyframes blinker {
   50% {
-    opacity: 0;
+    background-color: #c53030;
   }
 }
 
 @keyframes blinker {
   50% {
-    opacity: 0;
+    background-color: #c53030;
   }
 }
 

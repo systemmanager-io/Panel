@@ -3,4 +3,5 @@ declare interface ForgotPasswordTypes {
     loginBarColor: string,
     loginHidden: boolean,
     emptyEmail: boolean | undefined,
+
 }
