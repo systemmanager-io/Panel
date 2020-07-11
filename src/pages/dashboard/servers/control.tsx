@@ -14,6 +14,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import {faPowerOff} from "@fortawesome/free-solid-svg-icons/faPowerOff";
 import {faMoon} from "@fortawesome/free-solid-svg-icons/faMoon";
+import {faTerminal} from "@fortawesome/free-solid-svg-icons/faTerminal";
 
 export default class control extends React.Component<{ match: any }, { serverId: string }> {
 
@@ -39,15 +40,16 @@ export default class control extends React.Component<{ match: any }, { serverId:
                         <div
                             className={"flex m-1 border-blue-700 border-2 p-2 flex-1 bg-gray-800 text-gray-600 rounded"}>
                             <div className={"flex-1"}>
-                            <FontAwesomeIcon icon={faInfoCircle}/> I'm
-                            a field that is here to place some stuff in the future, we can put
-                            NEED
-                            TO KNOW information here. Information that has to be known first
-                            before
-                            anything else possibly has been read. We could use color codes to
-                            determine the importance
+                                <FontAwesomeIcon icon={faInfoCircle}/> I'm
+                                a field that is here to place some stuff in the future, we can put
+                                NEED
+                                TO KNOW information here. Information that has to be known first
+                                before
+                                anything else possibly has been read. We could use color codes to
+                                determine the importance
                             </div>
-                            <button className={"self-center text-base rounded mr-2 "}><FontAwesomeIcon icon={faTimes}/></button>
+                            <button className={"self-center text-base rounded mr-2 "}><FontAwesomeIcon icon={faTimes}/>
+                            </button>
                         </div>
                         <div
                             className={"m-1 flex text-xl border-yellow-700 border-2 p-2 flex-1 bg-gray-800 text-yellow-600 rounded"}>
@@ -88,9 +90,10 @@ export default class control extends React.Component<{ match: any }, { serverId:
                                     <div className={"p-2 border-b border-gray-700 font-semibold"}>Server Details
                                     </div>
                                     {/* Card body */}
-                                    <div className={"flex-1 flex flex-col md:flex-row p-2 r-12 font-semibold"}>
+                                    <div className={"flex-1 flex flex-col md:flex-row p-2 r-12 font-base"}>
                                         <div className={"flex-1"}>
                                             <h1>Name: {this.state.name}</h1>
+                                            <h1>UUID: {this.state.serverId}</h1>
                                             <h1>Location: {this.state.location}</h1>
                                             <h1>IP: {this.state.ip}</h1>
                                         </div>
@@ -98,23 +101,34 @@ export default class control extends React.Component<{ match: any }, { serverId:
                                     {/* Card footer */}
                                     <div className={"flex"}>
                                         <div
-                                            className={"flex-1 p-2 text-xs text-gray-700 border-t border-gray-700"}>
-                                                <span
-                                                    className={"mx-auto align-text-bottom"}>{this.state.serverId}</span>
+                                            className={"flex text-center flex-col flex p-2 text-gray-700 border-t border-gray-700"}>
+                                            <div className={"hidden md:block text-xs text-center"}>Management</div>
+                                            <div>
+                                                <button
+                                                    className={"px-2 py-1 hover:bg-gray-700 hover:text-blue-700 rounded"}>
+                                                    <FontAwesomeIcon className={"rounded text-base"} icon={faTerminal}/>
+                                                </button>
+                                            </div>
                                         </div>
-                                        <div className={"flex p-2 text-gray-700 border-t border-gray-700"}>
-                                            <button
-                                                className={"px-2 mr-1 py-1 hover:bg-gray-700 hover:text-red-700 rounded"}>
-                                                <FontAwesomeIcon className={"rounded text-base"} icon={faPowerOff}/>
-                                            </button>
-                                            <button
-                                                className={"px-2 mr-1 py-1 hover:bg-gray-700 hover:text-yellow-700 rounded"}>
-                                                <FontAwesomeIcon className={"rounded text-base"} icon={faMoon}/>
-                                            </button>
-                                            <button
-                                                className={"px-2 py-1 hover:bg-gray-700 hover:text-red-700 rounded"}>
-                                                <FontAwesomeIcon className={"rounded text-base"} icon={faRedoAlt}/>
-                                            </button>
+                                        <div className={"flex-1 flex flex-col  border-t border-gray-700 text-center"}>
+                                            <p className={"hidden md:block text-xs text-center text-gray-700"}></p>
+                                        </div>
+                                        <div className={"flex flex-col p-2 text-gray-700 border-t border-gray-700"}>
+                                            <div className={"hidden md:block text-xs text-center"}>Power</div>
+                                            <div>
+                                                <button
+                                                    className={"px-2 mr-1 py-1 hover:bg-gray-700 hover:text-red-700 rounded"}>
+                                                    <FontAwesomeIcon className={"rounded text-base"} icon={faPowerOff}/>
+                                                </button>
+                                                <button
+                                                    className={"px-2 mr-1 py-1 hover:bg-gray-700 hover:text-yellow-700 rounded"}>
+                                                    <FontAwesomeIcon className={"rounded text-base"} icon={faMoon}/>
+                                                </button>
+                                                <button
+                                                    className={"px-2 py-1 hover:bg-gray-700 hover:text-red-700 rounded"}>
+                                                    <FontAwesomeIcon className={"rounded text-base"} icon={faRedoAlt}/>
+                                                </button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -210,7 +224,8 @@ export default class control extends React.Component<{ match: any }, { serverId:
                                     <div className={"p-2 border-b border-gray-700 font-semibold"}>CPU Usage
                                     </div>
                                     {/* Card body*/}
-                                    <div className={"font-semibold"}>
+                                    <div className={"p-2"}>
+                                        Being worked on, some more work on the Core has to be done first to make this possible
                                     </div>
                                     {/* Card footer */}
                                 </div>
@@ -222,7 +237,8 @@ export default class control extends React.Component<{ match: any }, { serverId:
                                     <div className={"p-2 border-b border-gray-700 font-semibold"}>RAM Usage
                                     </div>
                                     {/* Card body*/}
-                                    <div className={"font-semibold"}>
+                                    <div className={"p-2"}>
+                                        Being worked on, some more work on the Core has to be done first to make this possible
                                     </div>
                                     {/* Card footer */}
                                 </div>
@@ -234,7 +250,8 @@ export default class control extends React.Component<{ match: any }, { serverId:
                                     <div className={"p-2 border-b border-gray-700 font-semibold"}>Storage Usage
                                     </div>
                                     {/* Card body*/}
-                                    <div className={"font-semibold"}>
+                                    <div className={"p-2"}>
+                                        Being worked on, some more work on the Core has to be done first to make this possible
                                     </div>
                                     {/* Card footer */}
                                 </div>
