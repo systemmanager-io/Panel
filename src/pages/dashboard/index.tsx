@@ -1,9 +1,9 @@
 import React, {Fragment} from 'react';
 import {Route, Switch} from "react-router-dom";
-import Navbar from "../../components/ProjectSpecific/Navbar";
 import Drawer from "../../components/ProjectSpecific/Drawer/Drawer";
-import Overview from "./Overview";
-import Servers from './Servers';
+import overview from "./overview";
+import servers from './servers/index';
+import serverControl from './servers/control'
 
 export default class Dashboard extends React.Component<{}, { drawerOpen: boolean }> {
     state = {
@@ -19,8 +19,9 @@ export default class Dashboard extends React.Component<{}, { drawerOpen: boolean
                     </div>
                     <div className={"flex-1"}>
                         <Switch>
-                            <Route path="/dashboard/overview" component={Overview}/>
-                            <Route exact path="/dashboard/servers" component={Servers}/>
+                            <Route path="/dashboard/overview" component={overview}/>
+                            <Route exact path="/dashboard/servers" component={servers}/>
+                            <Route exact path="/dashboard/servers/:serverId" component={serverControl}/>
                         </Switch>
                     </div>
                 </div>

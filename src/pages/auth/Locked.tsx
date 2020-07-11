@@ -1,9 +1,6 @@
 import React from 'react';
 import {Link} from "react-router-dom";
-import AuthDialog from "../../components/ProjectSpecific/AuthDialog";
-import TextField from "../../components/TextField";
-import {faAngleDown, faAngleRight, faEnvelope, faSignOutAlt} from "@fortawesome/free-solid-svg-icons";
-import Button from '../../components/Button';
+import {faSignOutAlt} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import Time from "../../components/Time";
 import Version from "../../components/Version";

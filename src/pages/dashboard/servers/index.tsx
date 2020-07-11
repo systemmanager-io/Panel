@@ -1,7 +1,7 @@
 import React, {Fragment} from 'react';
-import DashboardPage from "../../components/ProjectSpecific/Dashboard/DashboardPage";
-import DashboardTitle from "../../components/ProjectSpecific/Dashboard/DashboardTitle";
-import Table from "../../components/Table/Table";
+import DashboardPage from "../../../components/ProjectSpecific/Dashboard/DashboardPage";
+import DashboardTitle from "../../../components/ProjectSpecific/Dashboard/DashboardTitle";
+import Table from "../../../components/Table/Table";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {
     faCircleNotch, faDotCircle,
@@ -12,10 +12,10 @@ import {
     faCircle, faCheckCircle, faTimesCircle, faQuestionCircle, faTrash, faPencilAlt
 } from "@fortawesome/free-solid-svg-icons";
 import {Link} from "react-router-dom";
-import Button from "../../components/Button";
-import DashboardContent from "../../components/ProjectSpecific/Dashboard/DashboardContent";
+import Button from "../../../components/Button";
+import DashboardContent from "../../../components/ProjectSpecific/Dashboard/DashboardContent";
 
-export default class Servers extends React.Component<{}, {}> {
+export default class index extends React.Component<{}, {}> {
 
 
     render() {

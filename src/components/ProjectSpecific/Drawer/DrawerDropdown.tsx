@@ -1,6 +1,6 @@
 import React, {useState, Fragment, ReactComponentElement} from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faAngleDown, faAngleLeft} from "@fortawesome/free-solid-svg-icons";
+import {faAngleDown} from "@fortawesome/free-solid-svg-icons";
 
 export default function DrawerDropdown(props: { icon: any, title: string, children: any }): ReactComponentElement<any> {
     const [itemsHidden, setItemsHidden] = useState(true);

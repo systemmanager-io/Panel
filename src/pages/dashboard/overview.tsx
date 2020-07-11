@@ -25,7 +25,7 @@ export default class Overview extends React.Component<{}, {}> {
 
                     <DashboardContent>
                         <div className={"flex flex-wrap"}>
-                            <div className={"w-full flex-auto sm:w-6/12 lg:w-4/12 xl:w-3/12"}>
+                            <div className={"w-full sm:w-6/12 lg:w-4/12 xl:w-3/12"}>
                                 <Infobox type={"danger"}
                                          icon={faExclamationTriangle}
                                 >

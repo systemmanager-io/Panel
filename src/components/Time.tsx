@@ -1,6 +1,7 @@
 import React from "react"
 import {faClock} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {timeDebug} from "../App";
 
 let timeinterval: any;
 
@@ -21,6 +22,7 @@ export default class Time extends React.Component<any, any> {
     }
 
     tick() {
+        timeDebug(new Date().toLocaleString());
         this.setState({
             time: new Date().toLocaleString()
         });

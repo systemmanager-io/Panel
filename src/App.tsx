@@ -36,4 +36,6 @@ export default class App extends React.Component<{}, { isLoggedIn: boolean }> {
 export const version = "v0.0.3c-alpha";
 const appDebug = debug("systemmanager");
 export const cloudDebug = appDebug.extend("cloud");
+export const timeDebug = appDebug.extend("time");
 cloudDebug.enabled = true;
+timeDebug.enabled = false;

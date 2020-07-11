@@ -6,7 +6,7 @@ import {
     faList,
     faFileAlt,
     faUsers,
-    faCogs, faSignOutAlt, faLock, faEllipsisV
+    faCogs, faSignOutAlt, faLock,
 } from '@fortawesome/free-solid-svg-icons';
 import DrawerItem from "./DrawerItem";
 import DrawerCategory from "./DrawerCategory";
@@ -16,7 +16,6 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import Time from "../../Time";
 import Version from "../../Version";
 
-let timeinterval: any;
 export default class Drawer extends React.Component<any, { signoutDropdown: boolean, hidden: boolean }> {
     state = {
         hidden: true,
@@ -34,7 +33,7 @@ export default class Drawer extends React.Component<any, { signoutDropdown: bool
 
     render() {
         return (
-            <div className={"md:min-h-screen flex overflow-hidden flex-col bg-gray-900"}>
+            <div className={"md:min-h-screen flex flex-col bg-gray-900"}>
                 <div className={"flex w-full md:w-64 items-center p-2"}>
                     <h1 className={"text-2xl flex-1 text-white text-center"}>SystemManager</h1>
                     {/*<div className={"text-2xl p-4 flex-1 text-white"}>*/}
@@ -44,11 +43,11 @@ export default class Drawer extends React.Component<any, { signoutDropdown: bool
                         <button onClick={this.drawerButton}
                                 className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-white">
                             <svg className="block h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
                                       d="M4 6h16M4 12h16M4 18h16"/>
                             </svg>
                             <svg className="hidden h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
                                       d="M6 18L18 6M6 6l12 12"/>
                             </svg>
                         </button>
@@ -104,6 +103,11 @@ export default class Drawer extends React.Component<any, { signoutDropdown: bool
                             icon={faSignOutAlt}/></Link>
                     </div>
                 </div>
+                <a href={"https://systemmanager.io"} referrerPolicy={"_blank"}
+                   className={`${this.state.hidden ? "hidden" : "flex"} md:flex flex-col p-2 border-t border-gray-800 text-xs text-gray-700`}>
+                    <div>Powered by SystemManager</div>
+                    <div>Made with ❤ by/for System Administrators</div>
+                </a>
             </div>
         );
     }

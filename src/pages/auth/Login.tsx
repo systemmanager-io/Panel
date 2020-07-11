@@ -1,10 +1,5 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import {Link} from "react-router-dom";
-import Button from "../../components/Button";
-import TextField from "../../components/TextField";
-import AuthDialog from "../../components/ProjectSpecific/AuthDialog";
-import {faKey, faLock, faUser} from "@fortawesome/free-solid-svg-icons";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import Time from "../../components/Time";
 import Version from "../../components/Version";
 
